@@ -1,0 +1,15 @@
+# Gradle
+.gradle
+build/
+local.properties
+
+# IDEs
+.idea
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+
+# Initial safeguard for storing inputs.
+inputs/aockt/y*/d*/**
