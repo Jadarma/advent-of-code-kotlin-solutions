@@ -1,1 +1,1 @@
-rootProject.name = "advent-of-code-kotlin-template"
+rootProject.name = "advent-of-code-kotlin-solutions"
