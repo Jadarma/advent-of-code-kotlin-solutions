@@ -11,3 +11,6 @@
 
 # Explicitly mark binary files as such.
 *.jar       binary
+
+# Keep inputs secret.
+inputs/aockt/y*/d*/** filter=git-crypt diff=git-crypt

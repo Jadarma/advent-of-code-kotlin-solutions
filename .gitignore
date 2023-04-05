@@ -10,6 +10,3 @@ local.properties
 
 # OS
 .DS_Store
-
-# Initial safeguard for storing inputs.
-inputs/aockt/y*/d*/**
