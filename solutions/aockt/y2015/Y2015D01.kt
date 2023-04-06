@@ -2,7 +2,7 @@ package aockt.y2015
 
 import io.github.jadarma.aockt.core.Solution
 
-class Y2015D01 : Solution {
+object Y2015D01 : Solution {
 
     /**
      * Returns a [Sequence] of the floor number Santa is on as he follows the [input].
