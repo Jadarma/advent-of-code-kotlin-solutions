@@ -14,6 +14,24 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
+  <summary>2016 (20x⭐)</summary>
+
+| Day | Title                                                                | Stars |
+|:---:|:---------------------------------------------------------------------|:-----:|
+| 01  | [No Time for a Taxicab](solutions/aockt/y2016/Y2016D01.kt)           |  ⭐⭐   |
+| 02  | [Bathroom Security](solutions/aockt/y2016/Y2016D02.kt)               |  ⭐⭐   |
+| 03  | [Squares With Three Sides](solutions/aockt/y2016/Y2016D03.kt)        |  ⭐⭐   |
+| 04  | [Security Through Obscurity](solutions/aockt/y2016/Y2016D04.kt)      |  ⭐⭐   |
+| 05  | [How About a Nice Game of Chess?](solutions/aockt/y2016/Y2016D05.kt) |  ⭐⭐   |
+| 06  | [Signals and Noise](solutions/aockt/y2016/Y2016D06.kt)               |  ⭐⭐   |
+| 07  | [Internet Protocol Version 7](solutions/aockt/y2016/Y2016D07.kt)     |  ⭐⭐   |
+| 08  | [Two-Factor Authentication](solutions/aockt/y2016/Y2016D08.kt)       |  ⭐⭐   |
+| 09  | [Explosives in Cyberspace](solutions/aockt/y2016/Y2016D09.kt)        |  ⭐⭐   |
+| 10  | [Balance Bots](solutions/aockt/y2016/Y2016D10.kt)                    |  ⭐⭐   |
+
+</details>
+
+<details>
   <summary>2015 (50x⭐)</summary>
 
 | Day | Title                                                                       | Stars |
