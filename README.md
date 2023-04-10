@@ -14,6 +14,36 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
+    <summary>2021 (44x⭐)</summary>
+
+| Day | Title                                                        | Stars |
+|:---:|:-------------------------------------------------------------|:-----:|
+| 01  | [Sonar Sweep](solutions/aockt/y2021/Y2021D01.kt)             |  ⭐⭐   |
+| 02  | [Dive!](solutions/aockt/y2021/Y2021D02.kt)                   |  ⭐⭐   |
+| 03  | [Binary Diagnostic](solutions/aockt/y2021/Y2021D03.kt)       |  ⭐⭐   |
+| 04  | [Giant Squid](solutions/aockt/y2021/Y2021D04.kt)             |  ⭐⭐   |
+| 05  | [Hydrothermal Venture](solutions/aockt/y2021/Y2021D05.kt)    |  ⭐⭐   |
+| 06  | [Lanternfish](solutions/aockt/y2021/Y2021D06.kt)             |  ⭐⭐   |
+| 07  | [The Treachery of Whales](solutions/aockt/y2021/Y2021D07.kt) |  ⭐⭐   |
+| 08  | [Seven Segment Search](solutions/aockt/y2021/Y2021D08.kt)    |  ⭐⭐   |
+| 09  | [Smoke Basin](solutions/aockt/y2021/Y2021D09.kt)             |  ⭐⭐   |
+| 10  | [Syntax Scoring](solutions/aockt/y2021/Y2021D10.kt)          |  ⭐⭐   |
+| 11  | [Dumbo Octopus](solutions/aockt/y2021/Y2021D11.kt)           |  ⭐⭐   |
+| 12  | [Passage Pathing](solutions/aockt/y2021/Y2021D12.kt)         |  ⭐⭐   |
+| 13  | [Transparent Origami](solutions/aockt/y2021/Y2021D13.kt)     |  ⭐⭐   |
+| 14  | [Extended Polymerization](solutions/aockt/y2021/Y2021D14.kt) |  ⭐⭐   |
+| 15  | [Chiton](solutions/aockt/y2021/Y2021D15.kt)                  |  ⭐⭐   |
+| 16  | [Packet Decoder](solutions/aockt/y2021/Y2021D16.kt)          |  ⭐⭐   |
+| 17  | [Trick Shot](solutions/aockt/y2021/Y2021D17.kt)              |  ⭐⭐   |
+| 18  | [Snailfish](solutions/aockt/y2021/Y2021D18.kt)               |  ⭐⭐   |
+| 19  | [Beacon Scanner](solutions/aockt/y2021/Y2021D19.kt)          |  ⭐⭐   |
+| 20  | [Trench Map](solutions/aockt/y2021/Y2021D20.kt)              |  ⭐⭐   |
+| 21  | [Dirac Dice](solutions/aockt/y2021/Y2021D21.kt)              |  ⭐⭐   |
+| 22  | [Reactor Reboot](solutions/aockt/y2021/Y2021D22.kt)          |  ⭐⭐   |
+
+</details>
+
+<details>
   <summary>2016 (20x⭐)</summary>
 
 | Day | Title                                                                | Stars |
