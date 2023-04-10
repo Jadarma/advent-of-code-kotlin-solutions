@@ -14,6 +14,29 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
+    <summary>2022 (30x⭐)</summary>
+
+| Day | Title                                                        | Stars |
+|:---:|:-------------------------------------------------------------|:-----:|
+| 01  | [Calorie Counting](solutions/aockt/y2022/Y2022D01.kt)        |  ⭐⭐   |
+| 02  | [Rock Paper Scissors](solutions/aockt/y2022/Y2022D02.kt)     |  ⭐⭐   |
+| 03  | [Rucksack Reorganization](solutions/aockt/y2022/Y2022D03.kt) |  ⭐⭐   |
+| 04  | [Camp Cleanup](solutions/aockt/y2022/Y2022D04.kt)            |  ⭐⭐   |
+| 05  | [Supply Stacks](solutions/aockt/y2022/Y2022D05.kt)           |  ⭐⭐   |
+| 06  | [Tuning Trouble](solutions/aockt/y2022/Y2022D06.kt)          |  ⭐⭐   |
+| 07  | [No Space Left on Device](solutions/aockt/y2022/Y2022D07.kt) |  ⭐⭐   |
+| 08  | [Treetop Tree House](solutions/aockt/y2022/Y2022D08.kt)      |  ⭐⭐   |
+| 09  | [Rope Bridge](solutions/aockt/y2022/Y2022D09.kt)             |  ⭐⭐   |
+| 10  | [Cathode-Ray Tube](solutions/aockt/y2022/Y2022D10.kt)        |  ⭐⭐   |
+| 11  | [Monkey in the Middle](solutions/aockt/y2022/Y2022D11.kt)    |  ⭐⭐   |
+| 12  | [Hill Climbing Algorithm](solutions/aockt/y2022/Y2022D12.kt) |  ⭐⭐   |
+| 13  | [Distress Signal](solutions/aockt/y2022/Y2022D13.kt)         |  ⭐⭐   |
+| 14  | [Regolith Reservoir](solutions/aockt/y2022/Y2022D14.kt)      |  ⭐⭐   |
+| 15  | [Beacon Exclusion Zone](solutions/aockt/y2022/Y2022D15.kt)   |  ⭐⭐   |
+
+</details>
+
+<details>
     <summary>2021 (44x⭐)</summary>
 
 | Day | Title                                                        | Stars |
