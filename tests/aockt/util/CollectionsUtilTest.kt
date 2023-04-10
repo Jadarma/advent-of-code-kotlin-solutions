@@ -42,7 +42,7 @@ class CollectionsUtilTest : FunSpec({
                 listOf(2, 3),
                 listOf(1, 2, 3),
             )
-            items.powerSet().also(::println) shouldContainExactlyInAnyOrder powerSet
+            items.powerSet() shouldContainExactlyInAnyOrder powerSet
         }
         test("work with duplicate items") {
             val items = listOf(1, 1)
@@ -52,7 +52,7 @@ class CollectionsUtilTest : FunSpec({
                 listOf(1),
                 listOf(1, 1),
             )
-            items.powerSet().also(::println) shouldContainExactlyInAnyOrder powerSet
+            items.powerSet() shouldContainExactlyInAnyOrder powerSet
         }
     }
 })

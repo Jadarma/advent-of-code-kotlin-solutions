@@ -1,6 +1,5 @@
 package aockt.util
 
-import io.github.jadarma.aockt.test.AdventSpec
 import io.kotest.core.spec.DisplayName
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
@@ -17,7 +16,7 @@ class OcrDecoderTest : FunSpec({
             ####.#..#.#....#....#....#.##.#..#...#.....#.#.#..#....#..#.###..###...##..#..#...#...#...
             #..#.#..#.#..#.#....#....#..#.#..#...#..#..#.#.#..#....#..#.#....#.#.....#.#..#...#..#....
             #..#.###...##..####.#.....###.#..#..###..##..#..#.####..##..#....#..#.###...##....#..####.
-        """.trimIndent().also { println(it.lineSequence().first().length) }
+        """.trimIndent()
 
         OcrDecoder.decode(rawLetters) shouldBe "ABCEFGHIJKLOPRSUYZ"
     }
