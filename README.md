@@ -3,7 +3,8 @@
 My solutions to [Advent of Code](https://adventofcode.com/), using idiomatic Kotlin and my very own
 [helper framework](https://github.com/Jadarma/advent-of-code-kotlin)
 to make everything clean and easy to use.
-Use [this template](https://github.com/Jadarma/advent-of-code-kotlin-template) to achieve something similar!
+
+Use [**this template**](https://github.com/Jadarma/advent-of-code-kotlin-template) to achieve something similar!
 
 _"Anything that's worth doing, is worth overdoing."_
 
