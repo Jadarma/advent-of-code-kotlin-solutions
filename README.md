@@ -15,7 +15,7 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2022 (30x⭐)</summary>
+    <summary>2022 (31x⭐)</summary>
 
 | Day | Title                                                        | Stars |
 |:---:|:-------------------------------------------------------------|:-----:|
@@ -34,6 +34,7 @@ Table of contents to jump straight to the problem you're looking for.
 | 13  | [Distress Signal](solutions/aockt/y2022/Y2022D13.kt)         |  ⭐⭐   |
 | 14  | [Regolith Reservoir](solutions/aockt/y2022/Y2022D14.kt)      |  ⭐⭐   |
 | 15  | [Beacon Exclusion Zone](solutions/aockt/y2022/Y2022D15.kt)   |  ⭐⭐   |
+| 16  | [Proboscidea Volcanium](solutions/aockt/y2022/Y2022D16.kt)   |   ⭐   |
 
 </details>
 
