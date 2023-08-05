@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm") version "1.8.22"
-    kotlin("plugin.serialization") version "1.8.22"
+    kotlin("jvm") version "1.9.0"
+    kotlin("plugin.serialization") version "1.9.0"
 }
 
 kotlin {
@@ -19,11 +19,10 @@ sourceSets {
 
 repositories {
     mavenCentral()
-    maven("https://s01.oss.sonatype.org/content/repositories/snapshots")
 }
 
 dependencies {
-    val aocktVersion = "0.1.0-SNAPSHOT"
+    val aocktVersion = "0.1.0"
     val kotestVersion = "5.5.5"
     val kotlinSerializationVersion = "1.5.1"
 
