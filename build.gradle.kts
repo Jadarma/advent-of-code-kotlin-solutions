@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm") version "1.9.0"
-    kotlin("plugin.serialization") version "1.9.0"
+    kotlin("jvm") version "1.9.20"
+    kotlin("plugin.serialization") version "1.9.20"
 }
 
 kotlin {
@@ -24,7 +24,7 @@ repositories {
 dependencies {
     val aocktVersion = "0.1.0"
     val kotestVersion = "5.5.5"
-    val kotlinSerializationVersion = "1.5.1"
+    val kotlinSerializationVersion = "1.6.0"
 
     implementation("io.github.jadarma.aockt:aockt-core:$aocktVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinSerializationVersion")
