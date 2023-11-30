@@ -29,7 +29,7 @@ repositories {
 dependencies {
     val aocktVersion = "0.1.0"
     val kotestVersion = "5.5.5"
-    val kotlinSerializationVersion = "1.6.1"
+    val kotlinSerializationVersion = "1.6.2"
 
     implementation("io.github.jadarma.aockt:aockt-core:$aocktVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinSerializationVersion")
