@@ -6,9 +6,9 @@ object Y2023D01 : Solution {
 
     /** A map from digit spellings to their numerical values. */
     private val textToDigit: Map<String, Int> =
-        listOf("one", "two", "three", "four", "five", "six", "seven", "eight", "nine")
+        listOf("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine")
             .withIndex()
-            .associate { it.value to it.index + 1 }
+            .associate { it.value to it.index }
 
     /**
      * Parse the string and return a list of digits contained within it, with the following properties:
