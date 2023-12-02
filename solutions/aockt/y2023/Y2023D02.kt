@@ -29,6 +29,7 @@ object Y2023D02 : Solution {
         )
 
         companion object {
+
             /** Attempt to parse a [Game] notation from the [input] line. */
             fun parse(input: String): Game = runCatching {
                 Game(
@@ -62,7 +63,5 @@ object Y2023D02 : Solution {
         .filter { game -> game.isPossibleWith(Game.Balls(red = 12, green = 13, blue = 14)) }
         .sumOf { it.id }
 
-    override fun partTwo(input: String) = parseInput(input)
-        .map { it.minimumSet() }
-        .sumOf { set -> set.power }
+    override fun partTwo(input: String) = parseInput(input).sumOf { game -> game.minimumSet().power }
 }
