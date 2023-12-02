@@ -4,51 +4,36 @@ import io.github.jadarma.aockt.core.Solution
 
 object Y2023D01 : Solution {
 
-    /** A map from digit spellings to their numerical values. */
-    private val textToDigit: Map<String, Int> =
+    /** A map from digit symbols and spellings to their numerical values. */
+    private val textToDigit: Map<String, Int> = buildMap {
         listOf("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine")
             .withIndex()
-            .associate { it.value to it.index }
-
-    /**
-     * Parse the string and return a list of digits contained within it, with the following properties:
-     * - The list is in order of appearance.
-     * - The digits can also be spelled.
-     * - A character in the input may be used to spell two different digits.
-     * - If multiple digit spellings would have the same prefix, the longest wins (N/A in English).
-     *
-     * @param acceptSpelling Whether to accept spelling of digits. If false, only numerical values will be considered.
-     */
-    private fun String.digitize(acceptSpelling: Boolean): List<Int> = buildList {
-        val windowSize = textToDigit.maxOfOrNull { it.key.length } ?: 1
-        this@digitize
-            .windowed(windowSize, partialWindows = true)
-            .asSequence()
-            .mapNotNull { window ->
-                when {
-                    window.first().isDigit() -> window.first().digitToInt()
-                    !acceptSpelling -> null
-                    else -> {
-                        // Try all prefixes of the search window, longest to shortest.
-                        window
-                            .indices
-                            .reversed()
-                            .map { window.slice(0..it) }
-                            .firstNotNullOfOrNull(textToDigit::get)
-                    }
-                }
+            .forEach { (value, text) ->
+                put(value.toString(), value)
+                put(text, value)
             }
-            .forEach(::add)
-        require(isNotEmpty()) { "Invalid calibration input." }
     }
 
-    /** Parses the [input] and returns a sequence of calibration numbers, one for each input row. */
-    private fun calibrate(input: String, acceptSpelling: Boolean): Sequence<Int> =
+    /**
+     * Processes a modified calibration string and extracts the original calibration number.
+     * @param acceptSpelling Whether to accept spelled-out digits. If false, only numerical notation is considered.
+     */
+    private fun String.normalizeCalibrationNumber(acceptSpelling: Boolean): Int = runCatching {
+        val acceptable =
+            if(acceptSpelling) textToDigit.keys
+            else textToDigit.keys.filter { it.length == 1 && it.first().isDigit() }
+
+        val first = findAnyOf(acceptable)!!.second.let(textToDigit::getValue)
+        val last = findLastAnyOf(acceptable)!!.second.let(textToDigit::getValue)
+        first * 10 + last
+    }.getOrElse { throw IllegalArgumentException("Invalid input.", it) }
+
+    /** Parses the [input], computes the calibration numbers and returns their sum. */
+    private fun calibrate(input: String, acceptSpelling: Boolean): Int =
         input
             .lineSequence()
-            .map { it.digitize(acceptSpelling) }
-            .map { it.first() * 10 + it.last() }
+            .sumOf { it.normalizeCalibrationNumber(acceptSpelling) }
 
-    override fun partOne(input: String) = calibrate(input, acceptSpelling = false).sum()
-    override fun partTwo(input: String) = calibrate(input, acceptSpelling = true).sum()
+    override fun partOne(input: String) = calibrate(input, acceptSpelling = false)
+    override fun partTwo(input: String) = calibrate(input, acceptSpelling = true)
 }
