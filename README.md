@@ -17,9 +17,10 @@ Table of contents to jump straight to the problem you're looking for.
 <details open>
     <summary>2023 (2x⭐)</summary>
 
-| Day | Title                                            | Stars |
-|:---:|:-------------------------------------------------|:-----:|
-| 01  | [Trebuchet?!](solutions/aockt/y2023/Y2023D01.kt) |  ⭐⭐   |
+| Day | Title                                               | Stars |
+|:---:|:----------------------------------------------------|:-----:|
+| 01  | [Trebuchet?!](solutions/aockt/y2023/Y2023D01.kt)    |  ⭐⭐   |
+| 02  | [Cube Conundrum](solutions/aockt/y2023/Y2023D02.kt) |  ⭐⭐   |
 
 </details>
 
