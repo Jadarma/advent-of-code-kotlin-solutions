@@ -7,8 +7,7 @@ object Y2023D01 : Solution {
     /** A map from digit symbols and spellings to their numerical values. */
     private val textToDigit: Map<String, Int> = buildMap {
         listOf("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine")
-            .withIndex()
-            .forEach { (value, text) ->
+            .forEachIndexed { value, text ->
                 put(value.toString(), value)
                 put(text, value)
             }
