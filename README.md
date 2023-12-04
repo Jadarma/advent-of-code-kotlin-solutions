@@ -22,6 +22,7 @@ Table of contents to jump straight to the problem you're looking for.
 | 01  | [Trebuchet?!](solutions/aockt/y2023/Y2023D01.kt)    |  ⭐⭐   |
 | 02  | [Cube Conundrum](solutions/aockt/y2023/Y2023D02.kt) |  ⭐⭐   |
 | 03  | [Gear Ratios](solutions/aockt/y2023/Y2023D03.kt)    |  ⭐⭐   |
+| 04  | [Scratchcards](solutions/aockt/y2023/Y2023D04.kt)   |  ⭐⭐   |
 
 </details>
 
