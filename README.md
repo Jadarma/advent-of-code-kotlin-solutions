@@ -15,14 +15,15 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2023 (2x⭐)</summary>
+    <summary>2023 (10x⭐)</summary>
 
-| Day | Title                                               | Stars |
-|:---:|:----------------------------------------------------|:-----:|
-| 01  | [Trebuchet?!](solutions/aockt/y2023/Y2023D01.kt)    |  ⭐⭐   |
-| 02  | [Cube Conundrum](solutions/aockt/y2023/Y2023D02.kt) |  ⭐⭐   |
-| 03  | [Gear Ratios](solutions/aockt/y2023/Y2023D03.kt)    |  ⭐⭐   |
-| 04  | [Scratchcards](solutions/aockt/y2023/Y2023D04.kt)   |  ⭐⭐   |
+| Day | Title                                                                | Stars |
+|:---:|:---------------------------------------------------------------------|:-----:|
+| 01  | [Trebuchet?!](solutions/aockt/y2023/Y2023D01.kt)                     |  ⭐⭐   |
+| 02  | [Cube Conundrum](solutions/aockt/y2023/Y2023D02.kt)                  |  ⭐⭐   |
+| 03  | [Gear Ratios](solutions/aockt/y2023/Y2023D03.kt)                     |  ⭐⭐   |
+| 04  | [Scratchcards](solutions/aockt/y2023/Y2023D04.kt)                    |  ⭐⭐   |
+| 05  | [If You Give A Seed A Fertilizer](solutions/aockt/y2023/Y2023D05.kt) |  ⭐⭐   |
 
 </details>
 
