@@ -40,7 +40,7 @@ object Y2023D06 : Solution {
         val distances = distanceLine.substringAfter("Distance:").run(parser)
         require(times.size == distances.size) { "Some records are incomplete." }
 
-        times.zip(distances, ::RaceRecord).onEach { println(it) }
+        times.zip(distances, ::RaceRecord)
     }.getOrElse { cause -> throw IllegalArgumentException("Invalid input", cause) }
 
     /** Given some records, finds in how many ways can each of it be beaten, and returns the product of those values.*/
