@@ -1,5 +1,6 @@
 package aockt.y2023
 
+import aockt.y2023.Y2023D07.HandType.*
 import io.github.jadarma.aockt.core.Solution
 
 object Y2023D07 : Solution {
@@ -32,29 +33,29 @@ object Y2023D07 : Solution {
             val numberOfJokers = jokers.size
             val stats: List<Int> = plain.groupingBy { it }.eachCount().values.sortedDescending()
 
-            if (numberOfJokers >= 4) return@run HandType.FiveOfAKind
+            if (numberOfJokers >= 4) return@run FiveOfAKind
 
             when (stats.first()) {
-                5 -> HandType.FiveOfAKind
-                4 -> if (numberOfJokers == 1) HandType.FiveOfAKind else HandType.FourOfAKind
+                5 -> FiveOfAKind
+                4 -> if (numberOfJokers == 1) FiveOfAKind else FourOfAKind
                 3 -> when (numberOfJokers) {
-                    0 -> if (2 in stats.drop(1)) HandType.FullHouse else HandType.ThreeOfAKind
-                    1 -> HandType.FourOfAKind
-                    2 -> HandType.FiveOfAKind
+                    0 -> if (2 in stats.drop(1)) FullHouse else ThreeOfAKind
+                    1 -> FourOfAKind
+                    2 -> FiveOfAKind
                     else -> error("Impossible state.")
                 }
                 2 -> when (numberOfJokers) {
-                    0 -> if (2 in stats.drop(1)) HandType.TwoPair else HandType.OnePair
-                    1 -> if (2 in stats.drop(1)) HandType.FullHouse else HandType.ThreeOfAKind
-                    2 -> HandType.FourOfAKind
-                    3 -> HandType.FiveOfAKind
+                    0 -> if (2 in stats.drop(1)) TwoPair else OnePair
+                    1 -> if (2 in stats.drop(1)) FullHouse else ThreeOfAKind
+                    2 -> FourOfAKind
+                    3 -> FiveOfAKind
                     else -> error("Impossible state.")
                 }
                 1 -> when (numberOfJokers) {
-                    3 -> HandType.FourOfAKind
-                    2 -> HandType.ThreeOfAKind
-                    1 -> HandType.OnePair
-                    0 -> HandType.HighCard
+                    3 -> FourOfAKind
+                    2 -> ThreeOfAKind
+                    1 -> OnePair
+                    0 -> HighCard
                     else -> error("Impossible state.")
                 }
                 else -> error("Impossible state.")
