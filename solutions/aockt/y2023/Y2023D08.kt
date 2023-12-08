@@ -15,13 +15,10 @@ object Y2023D08 : Solution {
 
     /**
      * A ghost's map for navigating the Desert Island and avoid sandstorms.
-     * @property nodes The nodes on the map, indexed by their [Node.id].
-     * @property instructions
+     * @property nodes        The nodes on the map, indexed by their [Node.id].
+     * @property instructions The directions given on the map, deciding how to navigate.
      */
-    private class DesertGhostMap(
-        private val nodes: Map<String, Node>,
-        private val instructions: String,
-    ) {
+    private class DesertGhostMap(private val nodes: Map<String, Node>, private val instructions: String) {
 
         /** From the given node, at the given [step], decide which is the next visited node. */
         private fun Node.next(step: Int): Node = when (instructions[step % instructions.length]) {
@@ -54,9 +51,8 @@ object Y2023D08 : Solution {
          * Returns the answer, or -1 if we cannot determine the correct path.
          */
         fun navigateAsGhost(): Long {
-            fun navigateAsSuperpositionComponent(from: String): Int {
-                var node = nodes[from] ?: return -1
-
+            fun navigateAsSuperpositionComponent(start: Node): Int {
+                var node = start
                 val result = navigate(node) { it.id.endsWith('Z') }
 
                 // Check assumption that the step cycle will keep yielding destination nodes.
@@ -65,9 +61,9 @@ object Y2023D08 : Solution {
                 return if (node.id.endsWith('Z')) result else -1
             }
 
-            return nodes.keys
-                .filter { it.endsWith('A') }
-                .map { navigateAsSuperpositionComponent(it) }
+            return nodes.values
+                .filter { it.id.endsWith('A') }
+                .map(::navigateAsSuperpositionComponent)
                 .onEach { if (it == -1) return -1 }
                 .lcm()
         }
