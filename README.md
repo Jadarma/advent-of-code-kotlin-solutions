@@ -15,7 +15,7 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2023 (16x⭐)</summary>
+    <summary>2023 (18x⭐)</summary>
 
 | Day | Title                                                                | Stars |
 |:---:|:---------------------------------------------------------------------|:-----:|
@@ -27,6 +27,7 @@ Table of contents to jump straight to the problem you're looking for.
 | 06  | [Wait For It](solutions/aockt/y2023/Y2023D06.kt)                     |  ⭐⭐   |
 | 07  | [Camel Cards](solutions/aockt/y2023/Y2023D07.kt)                     |  ⭐⭐   |
 | 08  | [Haunted Wasteland](solutions/aockt/y2023/Y2023D08.kt)               |  ⭐⭐   |
+| 09  | [Mirage Maintenance](solutions/aockt/y2023/Y2023D09.kt)              |  ⭐⭐   |
 
 </details>
 
