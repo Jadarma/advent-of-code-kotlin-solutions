@@ -9,7 +9,7 @@ object Y2023D09 : Solution {
     private class History(val values: List<Int>) : List<Int> by values {
 
         private fun diffSequence() = generateSequence(values) { it.windowed(2) { (l, r) -> r - l } }
-            .takeWhile { numbers -> numbers.all { it == 0 }.not() }
+            .takeWhile { numbers -> numbers.any { it != 0 } }
 
         /** Predict the next value of this report based on previously gathered [values]. */
         val predict: Int by lazy { diffSequence().sumOf { it.last() } }
