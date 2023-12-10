@@ -1,5 +1,6 @@
 package aockt.y2023
 
+import aockt.util.parse
 import io.github.jadarma.aockt.core.Solution
 
 object Y2023D05 : Solution {
@@ -103,7 +104,7 @@ object Y2023D05 : Solution {
     }
 
     /** Parse the [input] and return an [Almanac]. */
-    private fun parseInput(input: String): Almanac = runCatching {
+    private fun parseInput(input: String): Almanac = parse {
         val mappingSteps = listOf("seed", "soil", "fertilizer", "water", "light", "temperature", "humidity", "location")
         val mapTypeRegex = Regex("""^([a-z]+)-to-([a-z]+) map:$""")
 
@@ -142,7 +143,7 @@ object Y2023D05 : Solution {
             .also { check(it.size == mappingSteps.size - 1) { "Some mapping stages missing." } }
 
         Almanac(seeds, stages)
-    }.getOrElse { cause -> throw IllegalArgumentException("Invalid input", cause) }
+    }
 
     override fun partOne(input: String) = parseInput(input).run { seeds.minOf(this::process) }
     override fun partTwo(input: String) = parseInput(input).run { process(seedsAsRanges()).minOf(LongRange::first) }

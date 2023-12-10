@@ -1,5 +1,6 @@
 package aockt.y2023
 
+import aockt.util.parse
 import io.github.jadarma.aockt.core.Solution
 
 object Y2023D01 : Solution {
@@ -17,7 +18,7 @@ object Y2023D01 : Solution {
      * Processes a modified calibration string and extracts the original calibration number.
      * @param acceptSpelling Whether to accept spelled-out digits. If false, only numerical notation is considered.
      */
-    private fun String.normalizeCalibrationNumber(acceptSpelling: Boolean): Int = runCatching {
+    private fun String.normalizeCalibrationNumber(acceptSpelling: Boolean): Int = parse {
         val acceptable =
             if(acceptSpelling) textToDigit.keys
             else textToDigit.keys.filter { it.length == 1 && it.first().isDigit() }
@@ -25,7 +26,7 @@ object Y2023D01 : Solution {
         val first = findAnyOf(acceptable)!!.second.let(textToDigit::getValue)
         val last = findLastAnyOf(acceptable)!!.second.let(textToDigit::getValue)
         first * 10 + last
-    }.getOrElse { throw IllegalArgumentException("Invalid input.", it) }
+    }
 
     /** Parses the [input], computes the calibration numbers and returns their sum. */
     private fun calibrate(input: String, acceptSpelling: Boolean): Int =

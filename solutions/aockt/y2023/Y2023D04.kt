@@ -1,5 +1,6 @@
 package aockt.y2023
 
+import aockt.util.parse
 import io.github.jadarma.aockt.core.Solution
 import kotlin.math.pow
 
@@ -31,7 +32,7 @@ object Y2023D04 : Solution {
     }
 
     /** Parses the [input] and returns the scratchcards. */
-    private fun parseInput(input: String): Set<Scratchcard> = runCatching {
+    private fun parseInput(input: String): Set<Scratchcard> = parse {
         val cardRegex = Regex("""^Card\s+(\d+): ([\d ]+) \| ([\d ]+)$""")
 
         fun parseNumberSet(input: String): Set<Int> =
@@ -42,7 +43,7 @@ object Y2023D04 : Solution {
             .map { line -> cardRegex.matchEntire(line.also(::println))!!.destructured }
             .map { (id, left, right) -> Scratchcard(id.toInt(), parseNumberSet(left), parseNumberSet(right)) }
             .toSet()
-    }.getOrElse { cause -> throw IllegalArgumentException("Invalid input.", cause) }
+    }
 
     /**
      * Takes a set of [Scratchcard]s and collects other cards as prises until all cards cave been claimed.

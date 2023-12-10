@@ -1,6 +1,7 @@
 package aockt.y2023
 
 import aockt.util.lcm
+import aockt.util.parse
 import io.github.jadarma.aockt.core.Solution
 
 object Y2023D08 : Solution {
@@ -79,7 +80,7 @@ object Y2023D08 : Solution {
     }
 
     /** Parse the [input] and return the [DesertGhostMap]. */
-    private fun parseInput(input: String): DesertGhostMap = runCatching {
+    private fun parseInput(input: String): DesertGhostMap = parse {
         val nodeRegex = Regex("""^(\w{3}) = \((\w{3}), (\w{3})\)$""")
         val instructionRegex = Regex("""^[LR]+$""")
 
@@ -94,7 +95,7 @@ object Y2023D08 : Solution {
             .associateBy { it.id }
 
         DesertGhostMap(nodes, directions)
-    }.getOrElse { cause -> throw IllegalArgumentException("Invalid input.", cause) }
+    }
 
     override fun partOne(input: String) = parseInput(input).navigateAsHuman()
     override fun partTwo(input: String) = parseInput(input).navigateAsGhost()

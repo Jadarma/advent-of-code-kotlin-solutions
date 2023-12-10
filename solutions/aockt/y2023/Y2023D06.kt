@@ -1,5 +1,6 @@
 package aockt.y2023
 
+import aockt.util.parse
 import io.github.jadarma.aockt.core.Solution
 
 object Y2023D06 : Solution {
@@ -29,7 +30,7 @@ object Y2023D06 : Solution {
      * @param input The puzzle input.
      * @param noticeKerning Whether to treat the input as one big number or not.
      */
-    private fun parseInput(input: String, noticeKerning: Boolean): List<RaceRecord> = runCatching {
+    private fun parseInput(input: String, noticeKerning: Boolean): List<RaceRecord> = parse {
         fun String.parseMany() = split(' ').map(String::trim).filter(String::isNotBlank).map(String::toLong)
         fun String.parseOne() = split(' ').joinToString(separator = "", transform = String::trim).toLong().let(::listOf)
 
@@ -41,7 +42,7 @@ object Y2023D06 : Solution {
         require(times.size == distances.size) { "Some records are incomplete." }
 
         times.zip(distances, ::RaceRecord)
-    }.getOrElse { cause -> throw IllegalArgumentException("Invalid input", cause) }
+    }
 
     /** Given some records, finds in how many ways can each of it be beaten, and returns the product of those values.*/
     private fun List<RaceRecord>.solve() = map { it.simulateBetterStrategies().count() }.fold(1L, Long::times)

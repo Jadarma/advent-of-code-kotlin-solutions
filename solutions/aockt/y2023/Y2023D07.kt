@@ -1,5 +1,6 @@
 package aockt.y2023
 
+import aockt.util.parse
 import aockt.y2023.Y2023D07.HandType.*
 import io.github.jadarma.aockt.core.Solution
 
@@ -78,14 +79,14 @@ object Y2023D07 : Solution {
      * @param input The puzzle input.
      * @param withJokers If true, all Jacks will be instead replaced by Jokers.
      */
-    private fun parseInput(input: String, withJokers: Boolean): List<Pair<Hand, Long>> = runCatching {
+    private fun parseInput(input: String, withJokers: Boolean): List<Pair<Hand, Long>> = parse {
         input
             .lineSequence()
             .map { if (withJokers) it.replace('J', '*') else it }
             .map { it.split(' ', limit = 2) }
             .map { (hand, bid) -> hand.map(Card.Companion::valueOf).let(::Hand) to bid.toLong() }
             .toList()
-    }.getOrElse { cause -> throw IllegalArgumentException("Invalid input.", cause) }
+    }
 
     /** Sort a list of hands by rank, and return the sum of their rank multiplied by their respective bid. */
     private fun List<Pair<Hand, Long>>.solve() =

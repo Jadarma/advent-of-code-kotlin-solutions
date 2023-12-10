@@ -3,6 +3,7 @@ package aockt.y2023
 import aockt.util.Point2D
 import aockt.util.Region2D
 import aockt.util.coerceIn
+import aockt.util.parse
 import io.github.jadarma.aockt.core.Solution
 
 object Y2023D03 : Solution {
@@ -14,7 +15,7 @@ object Y2023D03 : Solution {
     private data class Symbol(val coords: Point2D, val value: Char)
 
     /** Parse the [input] and build a representation of the engine schematics, mapping each symbol to adjacent parts. */
-    private fun parseInput(input: String): Map<Symbol, List<PartNumber>> = runCatching {
+    private fun parseInput(input: String): Map<Symbol, List<PartNumber>> = parse {
         val lines: Array<String> = input.lines().toTypedArray().also {
             require(it.isNotEmpty())
             require(it.all { line -> line.length == it.first().length })
@@ -49,7 +50,7 @@ object Y2023D03 : Solution {
                 }
             }
         }
-    }.getOrElse { cause -> throw IllegalArgumentException("Invalid input.", cause) }
+    }
 
     override fun partOne(input: String) =
         parseInput(input)
