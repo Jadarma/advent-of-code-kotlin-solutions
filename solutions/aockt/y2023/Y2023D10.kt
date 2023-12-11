@@ -3,7 +3,6 @@ package aockt.y2023
 import aockt.util.Direction
 import aockt.util.Direction.*
 import aockt.util.Point2D
-import aockt.util.Region2D
 import aockt.util.move
 import aockt.util.opposite
 import aockt.util.parse
@@ -36,12 +35,10 @@ object Y2023D10 : Solution {
 
     /**
      * A map of the pipe system observed on the floating metal island.
-     * @property area  The bounds of the map.
      * @property nodes The pipe segments in the maze, indexed by their coordinates.
      * @param    start The starting location from which to find the loop.
      */
     private class PipeMaze(
-        private val area: Region2D,
         private val nodes: Map<Point2D, PipeSegment>,
         start: Point2D,
     ) {
@@ -103,9 +100,7 @@ object Y2023D10 : Solution {
         )
 
         val rows = input.lines()
-        val columns = rows.first().length
-        require(rows.all { it.length == columns }) { "Map not a perfect rectangle." }
-        val area = Region2D(0 ..< columns, rows.indices)
+        require(rows.all { it.length == rows.first().length }) { "Map not a perfect rectangle." }
 
         val pipes = rows
             .asReversed()
@@ -122,7 +117,6 @@ object Y2023D10 : Solution {
             .let { (i, o) -> PipeSegment(startPoint, i to o) }
 
         PipeMaze(
-            area = area,
             nodes = pipes.plus(startPoint to startPipe),
             start = startPoint,
         )
