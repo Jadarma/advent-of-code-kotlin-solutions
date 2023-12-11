@@ -1,21 +1,17 @@
 package aockt.y2023
 
+import aockt.util.Point2D
+import aockt.util.distanceTo
 import aockt.util.parse
 import io.github.jadarma.aockt.core.Solution
-import kotlin.math.absoluteValue
 
 object Y2023D11 : Solution {
-
-    // TODO: Did not think to make Point2D use longs by default. Should refactor to remove this extra class.
-    private data class Point2DL(val x: Long, val y: Long) {
-        infix fun distanceTo(other: Point2DL): Long = (x - other.x).absoluteValue + (y - other.y).absoluteValue
-    }
 
     /**
      * A galaxy expansion simulator.
      * @param galaxies The apparent locations of the tracked galaxies.
      */
-    private class GalaxySimulator(private val galaxies: Set<Point2DL>) {
+    private class GalaxySimulator(private val galaxies: Set<Point2D>) {
 
         private val emptyRows: List<Long>
         private val emptyColumns: List<Long>
@@ -29,20 +25,20 @@ object Y2023D11 : Solution {
         }
 
         /** Expand the galaxy, increasing empty space by a [factor], returning the resulting locations of galaxies. */
-        fun expand(factor: Int): Set<Point2DL> {
+        fun expand(factor: Int): Set<Point2D> {
             val delta = factor - 1
             var expansion = galaxies.toList()
             var expansionDelta = 0
             for(row in emptyRows) {
                 expansion = expansion.map { (x, y) ->
-                    if (y < row + expansionDelta) Point2DL(x, y) else Point2DL(x, y + delta)
+                    if (y < row + expansionDelta) Point2D(x, y) else Point2D(x, y + delta)
                 }
                 expansionDelta += delta
             }
             expansionDelta = 0
             for(column in emptyColumns) {
                 expansion = expansion.map { (x, y) ->
-                    if (x < column + expansionDelta) Point2DL(x, y) else Point2DL(x + delta, y)
+                    if (x < column + expansionDelta) Point2D(x, y) else Point2D(x + delta, y)
                 }
                 expansionDelta += delta
             }
@@ -68,7 +64,7 @@ object Y2023D11 : Solution {
             .asReversed()
             .flatMapIndexed { row, line -> line.mapIndexed { column, c -> Triple(row, column, c) } }
             .filter { it.third == '#' }
-            .map { (y, x, _) -> Point2DL(x.toLong(),y.toLong()) }
+            .map { (y, x, _) -> Point2D(x.toLong(),y.toLong()) }
             .toSet()
             .let(::GalaxySimulator)
     }

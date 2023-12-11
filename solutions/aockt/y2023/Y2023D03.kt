@@ -31,7 +31,7 @@ object Y2023D03 : Solution {
             }.coerceIn(bounds)
 
             for (point in searchSpace) {
-                val value = lines[point.y][point.x]
+                val value = lines[point.y.toInt()][point.x.toInt()]
                 if (value != '.' && value.isLetterOrDigit().not()) {
                     return Symbol(point, value)
                 }

@@ -77,6 +77,7 @@ object Y2023D10 : Solution {
                 .minus(loop.size)
                 .div(2)
                 .plus(1)
+                .toInt()
     }
 
     /** Parse the [input] and recreate the [PipeMaze]. */
