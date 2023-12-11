@@ -26,24 +26,16 @@ object Y2023D11 : Solution {
         }
 
         /** Expand the galaxy, increasing empty space by a [factor], returning the resulting locations of galaxies. */
-        fun expand(factor: Int): Set<Point> {
+        fun expand(factor: Int): Set<Point> = buildSet {
             val delta = factor - 1
-            var expansion = galaxies.toList()
-            var expansionDelta = 0
-            for(row in emptyRows) {
-                expansion = expansion.map { (x, y) ->
-                    if (y < row + expansionDelta) Point(x, y) else Point(x, y + delta)
-                }
-                expansionDelta += delta
+            for (galaxy in galaxies) {
+                val horizontalExpansions = emptyColumns.indexOfLast { it < galaxy.x }.plus(1)
+                val verticalExpansions = emptyRows.indexOfLast { it < galaxy.y }.plus(1)
+                Point(
+                    x = galaxy.x + horizontalExpansions * delta,
+                    y = galaxy.y + verticalExpansions * delta,
+                ).let(::add)
             }
-            expansionDelta = 0
-            for(column in emptyColumns) {
-                expansion = expansion.map { (x, y) ->
-                    if (x < column + expansionDelta) Point(x, y) else Point(x + delta, y)
-                }
-                expansionDelta += delta
-            }
-            return expansion.toSet()
         }
     }
 
@@ -54,7 +46,7 @@ object Y2023D11 : Solution {
             .asReversed()
             .flatMapIndexed { row, line -> line.mapIndexed { column, c -> Triple(row, column, c) } }
             .filter { it.third == '#' }
-            .map { (y, x, _) -> Point(x.toLong(),y.toLong()) }
+            .map { (y, x, _) -> Point(x.toLong(), y.toLong()) }
             .toSet()
             .let(::GalaxySimulator)
     }
