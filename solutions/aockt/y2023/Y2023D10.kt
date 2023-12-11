@@ -1,10 +1,10 @@
 package aockt.y2023
 
-import aockt.util.Direction
-import aockt.util.Direction.*
-import aockt.util.Point2D
-import aockt.util.move
-import aockt.util.opposite
+import aockt.util.spacial.Direction
+import aockt.util.spacial.Direction.*
+import aockt.util.spacial.Point
+import aockt.util.spacial.move
+import aockt.util.spacial.opposite
 import aockt.util.parse
 import io.github.jadarma.aockt.core.Solution
 import kotlin.math.absoluteValue
@@ -16,7 +16,7 @@ object Y2023D10 : Solution {
      * @property location The coordinates where this pipe segment is placed.
      * @property flow     The directions in which this pipe redirects fluids.
      */
-    private data class PipeSegment(val location: Point2D, val flow: Pair<Direction, Direction>) {
+    private data class PipeSegment(val location: Point, val flow: Pair<Direction, Direction>) {
 
         init {
             require(flow.first != flow.second) { "A pipe cannot have the same output direction as the input." }
@@ -39,8 +39,8 @@ object Y2023D10 : Solution {
      * @param    start The starting location from which to find the loop.
      */
     private class PipeMaze(
-        private val nodes: Map<Point2D, PipeSegment>,
-        start: Point2D,
+        private val nodes: Map<Point, PipeSegment>,
+        start: Point,
     ) {
 
         /** The loop contained in this pipe maze, obtained by following the pipes from the start location. */
@@ -82,10 +82,10 @@ object Y2023D10 : Solution {
 
     /** Parse the [input] and recreate the [PipeMaze]. */
     private fun parseInput(input: String): PipeMaze = parse {
-        lateinit var startPoint: Point2D
+        lateinit var startPoint: Point
 
         fun parseNode(x: Int, y: Int, value: Char) = PipeSegment(
-            location = Point2D(x, y),
+            location = Point(x, y),
             flow = when (value) { // It is relevant that the Up direction is first, where applicable.
                 '|' -> Up to Down
                 '-' -> Left to Right
@@ -104,7 +104,7 @@ object Y2023D10 : Solution {
             .asReversed()
             .asSequence()
             .flatMapIndexed { y: Int, line: String -> line.mapIndexed { x, c -> Triple(x, y, c) } }
-            .onEach { (x, y, c) -> if (c == 'S') startPoint = Point2D(x, y) }
+            .onEach { (x, y, c) -> if (c == 'S') startPoint = Point(x, y) }
             .filterNot { it.third in ".S" }
             .map { (x, y, c) -> parseNode(x, y, c) }
             .associateBy { it.location }

@@ -1,9 +1,9 @@
-package aockt.util
+package aockt.util.spacial
 
-import aockt.util.Direction.Down
-import aockt.util.Direction.Left
-import aockt.util.Direction.Right
-import aockt.util.Direction.Up
+import aockt.util.spacial.Direction.Down
+import aockt.util.spacial.Direction.Left
+import aockt.util.spacial.Direction.Right
+import aockt.util.spacial.Direction.Up
 
 /** Represents a direction to move in. */
 sealed interface Direction {
@@ -28,7 +28,8 @@ sealed interface Direction {
 }
 
 /** Returns the direction opposite this one. */
-val Direction.opposite: Direction get() = when(this) {
+val Direction.opposite: Direction
+    get() = when(this) {
     Left -> Right
     Right -> Left
     Down -> Up
@@ -36,9 +37,9 @@ val Direction.opposite: Direction get() = when(this) {
 }
 
 /** Returns the point one unit distance away from this one in a given [direction]. */
-fun Point2D.move(direction: Direction): Point2D = when(direction) {
-    Left -> Point2D(x - 1, y)
-    Right -> Point2D(x + 1, y)
-    Down -> Point2D(x, y - 1)
-    Up -> Point2D(x, y + 1)
+fun Point.move(direction: Direction): Point = when(direction) {
+    Left -> Point(x - 1, y)
+    Right -> Point(x + 1, y)
+    Down -> Point(x, y - 1)
+    Up -> Point(x, y + 1)
 }

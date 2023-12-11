@@ -1,8 +1,8 @@
 package aockt.y2023
 
-import aockt.util.Point2D
-import aockt.util.distanceTo
 import aockt.util.parse
+import aockt.util.spacial.Point
+import aockt.util.spacial.distanceTo
 import io.github.jadarma.aockt.core.Solution
 
 object Y2023D11 : Solution {
@@ -11,7 +11,7 @@ object Y2023D11 : Solution {
      * A galaxy expansion simulator.
      * @param galaxies The apparent locations of the tracked galaxies.
      */
-    private class GalaxySimulator(private val galaxies: Set<Point2D>) {
+    private class GalaxySimulator(private val galaxies: Set<Point>) {
 
         private val emptyRows: List<Long>
         private val emptyColumns: List<Long>
@@ -25,20 +25,20 @@ object Y2023D11 : Solution {
         }
 
         /** Expand the galaxy, increasing empty space by a [factor], returning the resulting locations of galaxies. */
-        fun expand(factor: Int): Set<Point2D> {
+        fun expand(factor: Int): Set<Point> {
             val delta = factor - 1
             var expansion = galaxies.toList()
             var expansionDelta = 0
             for(row in emptyRows) {
                 expansion = expansion.map { (x, y) ->
-                    if (y < row + expansionDelta) Point2D(x, y) else Point2D(x, y + delta)
+                    if (y < row + expansionDelta) Point(x, y) else Point(x, y + delta)
                 }
                 expansionDelta += delta
             }
             expansionDelta = 0
             for(column in emptyColumns) {
                 expansion = expansion.map { (x, y) ->
-                    if (x < column + expansionDelta) Point2D(x, y) else Point2D(x + delta, y)
+                    if (x < column + expansionDelta) Point(x, y) else Point(x + delta, y)
                 }
                 expansionDelta += delta
             }
@@ -64,7 +64,7 @@ object Y2023D11 : Solution {
             .asReversed()
             .flatMapIndexed { row, line -> line.mapIndexed { column, c -> Triple(row, column, c) } }
             .filter { it.third == '#' }
-            .map { (y, x, _) -> Point2D(x.toLong(),y.toLong()) }
+            .map { (y, x, _) -> Point(x.toLong(),y.toLong()) }
             .toSet()
             .let(::GalaxySimulator)
     }

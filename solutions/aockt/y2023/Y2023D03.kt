@@ -1,18 +1,18 @@
 package aockt.y2023
 
-import aockt.util.Point2D
-import aockt.util.Region2D
-import aockt.util.coerceIn
+import aockt.util.spacial.Point
+import aockt.util.spacial.Area
+import aockt.util.spacial.coerceIn
 import aockt.util.parse
 import io.github.jadarma.aockt.core.Solution
 
 object Y2023D03 : Solution {
 
     /** A part number label in the engine schematics, drawn at [coords] with a numeric [value]. */
-    private data class PartNumber(val coords: Region2D, val value: Int)
+    private data class PartNumber(val coords: Area, val value: Int)
 
     /** A symbol in the engine schematics, drawn at [coords] with the symbol [value]. */
-    private data class Symbol(val coords: Point2D, val value: Char)
+    private data class Symbol(val coords: Point, val value: Char)
 
     /** Parse the [input] and build a representation of the engine schematics, mapping each symbol to adjacent parts. */
     private fun parseInput(input: String): Map<Symbol, List<PartNumber>> = parse {
@@ -20,11 +20,11 @@ object Y2023D03 : Solution {
             require(it.isNotEmpty())
             require(it.all { line -> line.length == it.first().length })
         }
-        val bounds = Region2D(0..<lines.first().length, lines.indices)
+        val bounds = Area(0..<lines.first().length, lines.indices)
 
         fun adjacentSymbolOrNull(part: PartNumber): Symbol? {
             val searchSpace = with(part.coords) {
-                Region2D(
+                Area(
                     xRange = xRange.run { first - 1..last + 1 },
                     yRange = yRange.run { first - 1..last + 1 },
                 )
@@ -44,7 +44,7 @@ object Y2023D03 : Solution {
             val numberRegex = Regex("""[1-9]\d*""")
             lines.forEachIndexed { y, row ->
                 numberRegex.replace(row) { label ->
-                    val part = PartNumber(Region2D(label.range, y..y), label.value.toInt())
+                    val part = PartNumber(Area(label.range, y..y), label.value.toInt())
                     adjacentSymbolOrNull(part)?.let { symbol -> getOrPut(symbol) { mutableListOf() }.add(part) }
                     ""
                 }
