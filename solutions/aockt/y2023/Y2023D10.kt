@@ -8,6 +8,7 @@ import aockt.util.move
 import aockt.util.opposite
 import aockt.util.parse
 import io.github.jadarma.aockt.core.Solution
+import kotlin.math.absoluteValue
 
 object Y2023D10 : Solution {
 
@@ -67,23 +68,21 @@ object Y2023D10 : Solution {
             } while (pipe.first.location != start)
         }
 
-        /** How many points within the [area] are fully contained inside the [loop]. */
-        val loopVolume: Int = run {
-            val loopNodes = loop.toSet()
-            var capacity = 0
-            for (y in area.yRange) {
-                var inside = false
-                for (x in area.xRange) {
-                    val node = nodes[Point2D(x, y)]
-                    val nodeInLoop = node in loopNodes
-                    val nodeIsVertical = nodeInLoop && node!!.flow.first == Up
-
-                    if (nodeIsVertical) inside = !inside
-                    if (!nodeInLoop && inside) capacity++
-                }
-            }
-            capacity
-        }
+        /**
+         * How many points within the [area] are fully contained inside the [loop].
+         * Uses the shoelace formula.
+         */
+        val loopVolume: Int =
+            loop
+                .asSequence()
+                .plus(loop.first())
+                .map(PipeSegment::location)
+                .windowed(2)
+                .sumOf { (a, b) -> a.x * b.y - a.y * b.x }
+                .absoluteValue
+                .minus(loop.size)
+                .div(2)
+                .plus(1)
     }
 
     /** Parse the [input] and recreate the [PipeMaze]. */
