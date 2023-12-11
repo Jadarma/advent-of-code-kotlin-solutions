@@ -1,5 +1,6 @@
 package aockt.y2023
 
+import aockt.util.math.distinctPairs
 import aockt.util.parse
 import aockt.util.spacial.Point
 import aockt.util.spacial.distanceTo
@@ -46,17 +47,6 @@ object Y2023D11 : Solution {
         }
     }
 
-    // TODO: Good candidate for a util.
-    /** Returns a sequence of unique pairs between all items. */
-    private fun <T> Collection<T>.uniquePairs(): Sequence<Pair<T, T>> = sequence {
-        val collection = this@uniquePairs.toList()
-        for(i in 0 ..< collection.size - 1) {
-            for (j in i + 1 ..< collection.size) {
-                yield(collection[i] to collection[j] )
-            }
-        }
-    }
-
     /** Parse the [input] and return a [GalaxySimulator] initialized with current galactic readings. */
     private fun parseInput(input: String): GalaxySimulator = parse {
         input
@@ -75,7 +65,7 @@ object Y2023D11 : Solution {
      */
     private fun GalaxySimulator.solve(expansionFactor: Int): Long =
         expand(expansionFactor)
-            .uniquePairs()
+            .distinctPairs()
             .sumOf { it.first distanceTo it.second }
 
     override fun partOne(input: String) = parseInput(input).solve(expansionFactor = 2)
