@@ -65,10 +65,7 @@ object Y2023D10 : Solution {
             } while (pipe.first.location != start)
         }
 
-        /**
-         * How many points within the [area] are fully contained inside the [loop].
-         * Uses the shoelace formula.
-         */
+        /** How many points in the maze are fully contained inside the [loop]. Uses the shoelace formula. */
         val loopVolume: Int =
             loop
                 .asSequence()
