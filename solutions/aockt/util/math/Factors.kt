@@ -1,10 +1,9 @@
 @file:Suppress("NOTHING_TO_INLINE")
 
-package aockt.util
+package aockt.util.math
 
 import java.lang.Math.multiplyExact
-
-// TODO: Add unit tests.
+import kotlin.math.absoluteValue
 
 /** Calculates the greatest common denominator of two numbers [a] and [b] using the Euclidean method. */
 fun gcd(a: Long, b: Long): Long {
@@ -23,7 +22,7 @@ fun gcd(a: Long, b: Long): Long {
 inline fun gcd(a: Int, b: Int): Int = gcd(a.toLong(), b.toLong()).toInt()
 
 /** Calculates the least common multiple of two numbers [a] and [b]. */
-fun lcm(a: Long, b: Long): Long = multiplyExact(a, b) / gcd(a, b)
+fun lcm(a: Long, b: Long): Long = multiplyExact(a, b).absoluteValue / gcd(a, b)
 
 /** Calculates the least common multiple of two numbers [a] and [b]. */
 inline fun lcm(a: Int, b: Int): Long = lcm(a.toLong(), b.toLong())
