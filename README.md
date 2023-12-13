@@ -15,7 +15,7 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2023 (24x⭐)</summary>
+    <summary>2023 (26x⭐)</summary>
 
 | Day | Title                                                                | Stars |
 |:---:|:---------------------------------------------------------------------|:-----:|
@@ -31,6 +31,7 @@ Table of contents to jump straight to the problem you're looking for.
 | 10  | [Pipe Maze](solutions/aockt/y2023/Y2023D10.kt)                       |  ⭐⭐   |
 | 11  | [Cosmic Expansion](solutions/aockt/y2023/Y2023D11.kt)                |  ⭐⭐   |
 | 12  | [Hot Springs](solutions/aockt/y2023/Y2023D12.kt)                     |  ⭐⭐   |
+| 12  | [Point of Incidence](solutions/aockt/y2023/Y2023D13.kt)              |  ⭐⭐   |
 
 </details>
 
