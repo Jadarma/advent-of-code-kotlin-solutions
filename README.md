@@ -15,7 +15,7 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2023 (30x⭐)</summary>
+    <summary>2023 (32x⭐)</summary>
 
 | Day | Title                                                                | Stars |
 |:---:|:---------------------------------------------------------------------|:-----:|
@@ -34,6 +34,7 @@ Table of contents to jump straight to the problem you're looking for.
 | 13  | [Point of Incidence](solutions/aockt/y2023/Y2023D13.kt)              |  ⭐⭐   |
 | 14  | [Parabolic Reflector Dish](solutions/aockt/y2023/Y2023D14.kt)        |  ⭐⭐   |
 | 15  | [Lens Library](solutions/aockt/y2023/Y2023D15.kt)                    |  ⭐⭐   |
+| 16  | [The Floor Will Be Lava](solutions/aockt/y2023/Y2023D16.kt)          |  ⭐⭐   |
 
 </details>
 
