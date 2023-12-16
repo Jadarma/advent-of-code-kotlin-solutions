@@ -14,7 +14,16 @@ data class Area(val xRange: LongRange, val yRange: LongRange) : Iterable<Point> 
     constructor(bottomLeft: Point, topRight: Point) : this(bottomLeft.x..topRight.x, bottomLeft.y..topRight.y)
 
     /** Alternate constructor that converts from integer ranges, for convenience. */
-    constructor(xRange: IntRange, yRange: IntRange) : this (xRange.first.toLong() .. xRange.last.toLong(), yRange.first.toLong() .. yRange.last.toLong())
+    constructor(xRange: IntRange, yRange: IntRange) : this(
+        xRange = xRange.first.toLong()..xRange.last.toLong(),
+        yRange = yRange.first.toLong()..yRange.last.toLong(),
+    )
+
+    /** Alternate constructor that determines the bounding box of a number of [points]. */
+    constructor(points: Iterable<Point>) : this(
+        xRange = points.minOf { it.x }..points.maxOf { it.x },
+        yRange = points.minOf { it.y }..points.maxOf { it.y },
+    )
 
     val width: Long get() = xRange.last - xRange.first + 1
     val height: Long get() = yRange.last - yRange.first + 1
@@ -32,6 +41,6 @@ data class Area(val xRange: LongRange, val yRange: LongRange) : Iterable<Point> 
 
 /** Returns a new region, removing all points that are outside the bounds of the [other] region. */
 fun Area.coerceIn(other: Area) = Area(
-    xRange = maxOf(xRange.first, other.xRange.first) .. minOf(xRange.last, other.xRange.last),
-    yRange = maxOf(yRange.first, other.yRange.first) .. minOf(yRange.last, other.yRange.last),
+    xRange = maxOf(xRange.first, other.xRange.first)..minOf(xRange.last, other.xRange.last),
+    yRange = maxOf(yRange.first, other.yRange.first)..minOf(yRange.last, other.yRange.last),
 )
