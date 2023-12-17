@@ -6,7 +6,7 @@ import java.util.PriorityQueue
 interface Graph<T : Any> {
 
     /** Returns all the possible nodes to visit starting from this [node] associated with the cost of travel. */
-    fun neighboursOf(node: T): List<Pair<T, Int>>
+    fun neighboursOf(node: T): Iterable<Pair<T, Int>>
 }
 
 /**
@@ -66,7 +66,7 @@ fun <T : Any> SearchResult<T>.path(): SearchPath<T>? = when(destination) {
 
 /**
  * Performs a search on the graph.
- * If a [heuristic] is given, it is A*, otherwise Djikstra.
+ * If a [heuristic] is given, it is A*, otherwise Dijkstra.
  *
  * @param start The origin node from where to start searching.
  * @param maximumCost If specified, will stop searching if no destination was found with a cost smaller than this value.
@@ -87,22 +87,21 @@ fun <T : Any> Graph<T>.search(
     val queue = PriorityQueue(compareBy<Pair<T, Int>> { it.second })
     queue.add(start to 0)
     val searchTree = mutableMapOf(start to (start to 0))
-    var destination: T? = null
 
-    while(true) {
-        val node = queue.poll()?.first
-            ?.also(onVisited)
-            ?.takeUnless { goalFunction(it).also { isGoal -> if(isGoal) destination = it } }
-            ?: break
+    while (true) {
+        val (node, costSoFar) = queue.poll() ?: return SearchResult(start, null, searchTree)
+        onVisited(node)
 
-        neighboursOf(node).forEach { (next, cost) ->
-            val nextCost = searchTree.getValue(node).second + cost
-            if(nextCost <= maximumCost && nextCost <= (searchTree[next]?.second ?: Int.MAX_VALUE)) {
-                queue.add(next to heuristic(next).plus(nextCost))
-                searchTree[next] = node to nextCost
+        if (goalFunction(node)) return SearchResult(start, node, searchTree)
+
+        neighboursOf(node)
+            .filter { it.first !in searchTree }
+            .forEach { (next, cost) ->
+                val nextCost = costSoFar + cost
+                if (nextCost <= maximumCost && nextCost <= (searchTree[next]?.second ?: Int.MAX_VALUE)) {
+                    queue.add(next to heuristic(next).plus(nextCost))
+                    searchTree[next] = node to nextCost
+                }
             }
-        }
     }
-
-    return SearchResult(start, destination, searchTree)
 }
