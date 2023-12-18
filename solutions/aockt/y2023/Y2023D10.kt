@@ -6,8 +6,8 @@ import aockt.util.spacial.Point
 import aockt.util.spacial.move
 import aockt.util.spacial.opposite
 import aockt.util.parse
+import aockt.util.spacial.polygonArea
 import io.github.jadarma.aockt.core.Solution
-import kotlin.math.absoluteValue
 
 object Y2023D10 : Solution {
 
@@ -66,18 +66,7 @@ object Y2023D10 : Solution {
         }
 
         /** How many points in the maze are fully contained inside the [loop]. Uses the shoelace formula. */
-        val loopVolume: Int =
-            loop
-                .asSequence()
-                .plus(loop.first())
-                .map(PipeSegment::location)
-                .windowed(2)
-                .sumOf { (a, b) -> a.x * b.y - a.y * b.x }
-                .absoluteValue
-                .minus(loop.size)
-                .div(2)
-                .plus(1)
-                .toInt()
+        val loopVolume: Long = loop.map { it.location }.polygonArea(includingPerimeter = false)
     }
 
     /** Parse the [input] and recreate the [PipeMaze]. */
