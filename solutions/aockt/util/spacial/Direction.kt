@@ -55,9 +55,9 @@ val Direction.turnedCounterClockwise: Direction
     }
 
 /** Returns the point one unit distance away from this one in a given [direction]. */
-fun Point.move(direction: Direction): Point = when (direction) {
-    Left -> Point(x - 1, y)
-    Right -> Point(x + 1, y)
-    Down -> Point(x, y - 1)
-    Up -> Point(x, y + 1)
+fun Point.move(direction: Direction, distance: Long = 1): Point = when (direction) {
+    Left -> Point(x - distance, y)
+    Right -> Point(x + distance, y)
+    Down -> Point(x, y - distance)
+    Up -> Point(x, y + distance)
 }
