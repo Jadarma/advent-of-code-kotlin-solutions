@@ -54,7 +54,7 @@ object Y2023D18 : Solution {
     }
 
     /** Simulate digging a trench following the steps, and return the total volume of the hollowed out structure. */
-    private fun List<DigPlanStep>.solve(): Long = digTrench(Point(0, 0)).polygonArea(includingPerimeter = true)
+    private fun List<DigPlanStep>.solve(): Long = digTrench(Point.Origin).polygonArea(includingPerimeter = true)
 
     override fun partOne(input: String) = parseInput(input, inColorEncoding = false).solve()
     override fun partTwo(input: String) = parseInput(input, inColorEncoding = true).solve()

@@ -17,6 +17,11 @@ data class Point(val x: Long, val y: Long) {
 
     /** Encoded as a human and debugger friendly way. */
     override fun toString(): String = "($x, $y)"
+
+    companion object {
+        /** The center of the cartesian grid. */
+        val Origin: Point = Point(0L, 0L)
+    }
 }
 
 /**
