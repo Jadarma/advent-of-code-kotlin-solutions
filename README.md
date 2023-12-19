@@ -15,7 +15,7 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2023 (36x⭐)</summary>
+    <summary>2023 (38x⭐)</summary>
 
 | Day | Title                                                                | Stars |
 |:---:|:---------------------------------------------------------------------|:-----:|
@@ -37,6 +37,7 @@ Table of contents to jump straight to the problem you're looking for.
 | 16  | [The Floor Will Be Lava](solutions/aockt/y2023/Y2023D16.kt)          |  ⭐⭐   |
 | 17  | [Clumsy Crucible](solutions/aockt/y2023/Y2023D17.kt)                 |  ⭐⭐   |
 | 18  | [Lavaduct Lagoon](solutions/aockt/y2023/Y2023D18.kt)                 |  ⭐⭐   |
+| 19  | [Aplenty](solutions/aockt/y2023/Y2023D19.kt)                         |  ⭐⭐   |
 
 </details>
 
