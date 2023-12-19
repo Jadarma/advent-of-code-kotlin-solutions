@@ -25,8 +25,8 @@ data class Area(val xRange: LongRange, val yRange: LongRange) : Iterable<Point> 
         yRange = points.minOf { it.y }..points.maxOf { it.y },
     )
 
-    val width: Long get() = xRange.last - xRange.first + 1
-    val height: Long get() = yRange.last - yRange.first + 1
+    val width: Long get() = if(xRange.isEmpty()) 0 else xRange.last - xRange.first + 1
+    val height: Long get() = if(xRange.isEmpty()) 0 else yRange.last - yRange.first + 1
 
     operator fun contains(point: Point) = point.x in xRange && point.y in yRange
 
