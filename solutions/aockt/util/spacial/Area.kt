@@ -10,6 +10,12 @@ package aockt.util.spacial
  */
 data class Area(val xRange: LongRange, val yRange: LongRange) : Iterable<Point> {
 
+    /** Alternate constructor that taxes a width and height and returns an area starting from the origin. */
+    constructor(width: Long, height: Long) : this(0L..<width, 0L..<height)
+
+    /** Alternate constructor that taxes a width and height and returns an area starting from the origin. */
+    constructor(width: Int, height: Int) : this(0L..<width, 0L..<height)
+
     /** Alternate constructor that calculates the region from the [bottomLeft] and [topRight] points of a rectangle. */
     constructor(bottomLeft: Point, topRight: Point) : this(bottomLeft.x..topRight.x, bottomLeft.y..topRight.y)
 
