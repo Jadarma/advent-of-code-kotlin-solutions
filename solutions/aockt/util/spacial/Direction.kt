@@ -25,6 +25,10 @@ sealed interface Direction {
 
     /** A rightward direction. */
     data object Right : Horizontal
+
+    companion object {
+        val all: List<Direction> = listOf(Up, Right, Down, Left)
+    }
 }
 
 /** Returns the direction opposite this one. */
