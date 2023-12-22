@@ -31,8 +31,8 @@ data class Area(val xRange: LongRange, val yRange: LongRange) : Iterable<Point> 
         yRange = points.minOf { it.y }..points.maxOf { it.y },
     )
 
-    val width: Long get() = if(xRange.isEmpty()) 0 else xRange.last - xRange.first + 1
-    val height: Long get() = if(xRange.isEmpty()) 0 else yRange.last - yRange.first + 1
+    val width: Long get() = if (xRange.isEmpty()) 0 else xRange.last - xRange.first + 1
+    val height: Long get() = if (xRange.isEmpty()) 0 else yRange.last - yRange.first + 1
 
     operator fun contains(point: Point) = point.x in xRange && point.y in yRange
 
@@ -50,3 +50,10 @@ fun Area.coerceIn(other: Area) = Area(
     xRange = maxOf(xRange.first, other.xRange.first)..minOf(xRange.last, other.xRange.last),
     yRange = maxOf(yRange.first, other.yRange.first)..minOf(yRange.last, other.yRange.last),
 )
+
+/** Checks whether this and the [other] areas have any points in common. */
+infix fun Area.overlaps(other: Area): Boolean {
+    val horizontalOverlap = maxOf(xRange.first, other.xRange.first) <= minOf(xRange.last, other.xRange.last)
+    val verticalOverlap = maxOf(yRange.first, other.yRange.first) <= minOf(yRange.last, other.yRange.last)
+    return horizontalOverlap && verticalOverlap
+}
