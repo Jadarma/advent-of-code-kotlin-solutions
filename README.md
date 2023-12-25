@@ -15,7 +15,7 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2023 (48x⭐)</summary>
+    <summary>2023 (50⭐)</summary>
 
 | Day | Title                                                                | Stars |
 |:---:|:---------------------------------------------------------------------|:-----:|
@@ -43,6 +43,7 @@ Table of contents to jump straight to the problem you're looking for.
 | 22  | [Sand Slabs](solutions/aockt/y2023/Y2023D22.kt)                      |  ⭐⭐   |
 | 23  | [A Long Walk](solutions/aockt/y2023/Y2023D23.kt)                     |  ⭐⭐   |
 | 24  | [Never Tell Me The Odds](solutions/aockt/y2023/Y2023D24.kt)          |  ⭐⭐   |
+| 25  | [Snowverload](solutions/aockt/y2023/Y2023D25.kt)                     |  ⭐⭐   |
 
 </details>
 
