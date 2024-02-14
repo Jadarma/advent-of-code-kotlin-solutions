@@ -45,6 +45,7 @@ object Y2023D05 : Solution {
         val rangeMaximum = ranges.last().last
 
         return buildList {
+            val (first, last) = this@splitBy.first to this@splitBy.last
             if (first < rangeMinimum) add(first..<rangeMinimum)
             addAll(ranges)
             if (last > rangeMaximum) add(rangeMaximum.inc()..last)
