@@ -37,11 +37,11 @@ fun Iterable<Point>.polygonArea(includingPerimeter: Boolean = true): Long {
 
     continueLace(last, start)
 
-    val insideArea = sum.absoluteValue / 2
+    val insideArea = sum.absoluteValue / 2 - perimeter / 2 + 1
 
     return when {
         points < 3 -> 0
-        includingPerimeter -> insideArea - perimeter / 2 + 1 + perimeter
+        includingPerimeter -> insideArea + perimeter
         else -> insideArea
     }
 }
