@@ -84,12 +84,14 @@ fun <T : Any> Graph<T>.search(
     heuristic: (T) -> Int = { 0 },
     goalFunction: (T) -> Boolean = { false },
 ): SearchResult<T> {
-    val queue = PriorityQueue(compareBy<Pair<T, Int>> { it.second })
-    queue.add(start to 0)
     val searchTree = mutableMapOf(start to (start to 0))
 
+    @Suppress("UNUSED_DESTRUCTURED_PARAMETER_ENTRY")
+    val queue = PriorityQueue(compareBy<Triple<T, Int, Int>> { (node, costSoFar, priority) -> priority })
+    queue.add(Triple(start,0, 0))
+
     while (true) {
-        val (node, costSoFar) = queue.poll() ?: return SearchResult(start, null, searchTree)
+        val (node, costSoFar, _) = queue.poll() ?: return SearchResult(start, null, searchTree)
         onVisited(node)
 
         if (goalFunction(node)) return SearchResult(start, node, searchTree)
@@ -99,7 +101,7 @@ fun <T : Any> Graph<T>.search(
             .forEach { (next, cost) ->
                 val nextCost = costSoFar + cost
                 if (nextCost <= maximumCost && nextCost <= (searchTree[next]?.second ?: Int.MAX_VALUE)) {
-                    queue.add(next to heuristic(next).plus(nextCost))
+                    queue.add(Triple(next, nextCost, nextCost + heuristic(next)))
                     searchTree[next] = node to nextCost
                 }
             }
