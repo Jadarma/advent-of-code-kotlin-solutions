@@ -40,7 +40,7 @@ object Y2023D04 : Solution {
 
         input
             .lineSequence()
-            .map { line -> cardRegex.matchEntire(line.also(::println))!!.destructured }
+            .map { line -> cardRegex.matchEntire(line)!!.destructured }
             .map { (id, left, right) -> Scratchcard(id.toInt(), parseNumberSet(left), parseNumberSet(right)) }
             .toSet()
     }
