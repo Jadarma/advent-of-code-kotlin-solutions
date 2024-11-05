@@ -5,7 +5,7 @@ plugins {
 rootProject.name = "advent-of-code-kotlin-solutions"
 
 // Used when testing. If enabled, will include the local repo as a composite build instead of downloading from Maven.
-val useLocal = false
+val useLocal = true
 if(useLocal && file("../advent-of-code-kotlin").exists())
     includeBuild("../advent-of-code-kotlin") {
         name = "aockt-local"
