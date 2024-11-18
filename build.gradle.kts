@@ -22,7 +22,7 @@ repositories {
 }
 
 dependencies {
-    val aocktVersion = "0.2.0"
+    val aocktVersion = "0.2.1"
     val kotestVersion = "5.9.1"
     val kotlinSerializationVersion = "1.7.3"
 
