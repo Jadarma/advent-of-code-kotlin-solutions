@@ -1,12 +1,13 @@
 package aockt.y2024
 
+import aockt.util.parse
 import io.github.jadarma.aockt.core.Solution
 import kotlin.math.absoluteValue
 
 object Y2024D01 : Solution {
 
     /** Parse the [input] and return the two lists. */
-    private fun parseInput(input: String): Pair<List<Int>, List<Int>> {
+    private fun parseInput(input: String): Pair<List<Int>, List<Int>> = parse {
         val firstList = mutableListOf<Int>()
         val secondList = mutableListOf<Int>()
 
@@ -15,7 +16,7 @@ object Y2024D01 : Solution {
             .map { line -> line.split("   ", limit = 2).map(String::toInt) }
             .forEach { (x, y) -> firstList.add(x); secondList.add(y) }
 
-        return firstList to secondList
+        firstList to secondList
     }
 
     override fun partOne(input: String): Int {

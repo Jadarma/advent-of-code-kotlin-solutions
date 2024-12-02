@@ -15,7 +15,7 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2024 (2⭐)</summary>
+    <summary>2024 (2x⭐)</summary>
 
 | Day | Title                                                   | Stars |
 |:---:|:--------------------------------------------------------|:-----:|
@@ -24,7 +24,7 @@ Table of contents to jump straight to the problem you're looking for.
 </details>
 
 <details>
-    <summary>2023 (50⭐)</summary>
+    <summary>2023 (50x⭐)</summary>
 
 | Day | Title                                                                | Stars |
 |:---:|:---------------------------------------------------------------------|:-----:|
