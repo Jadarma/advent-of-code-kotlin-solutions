@@ -4,7 +4,7 @@ import io.github.jadarma.aockt.core.Solution
 
 object Y2024D03 : Solution {
 
-    private val mulRegex = Regex("""mul\((\d+),(\d+)\)""")
+    private val mulRegex = Regex("""mul\((\d{1,3}),(\d{1,3})\)""")
     private val dontRegex = Regex("""don't\(\).*?(?:do\(\)|$)""")
 
     override fun partOne(input: String) =
