@@ -21,6 +21,7 @@ Table of contents to jump straight to the problem you're looking for.
 |:---:|:--------------------------------------------------------|:-----:|
 | 01  | [Historian Hysteria](solutions/aockt/y2024/Y2024D01.kt) |  ⭐⭐   |
 | 02  | [Red-Nosed Reports](solutions/aockt/y2024/Y2024D02.kt)  |  ⭐⭐   |
+| 03  | [Mull It Over](solutions/aockt/y2024/Y2024D03.kt)       |  ⭐⭐   |
 
 </details>
 
