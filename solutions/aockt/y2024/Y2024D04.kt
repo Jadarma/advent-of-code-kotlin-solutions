@@ -37,12 +37,13 @@ object Y2024D04 : Solution {
     }
 
     override fun partTwo(input: String): Int = with(parseInput(input)) {
+        val mas = setOf("MAS", "SAM")
         points()
             .filter { (p, v) -> v == 'A' && p.x in 1..<width - 1 && p.y in 1..<height - 1 }
             .count { (p, v) ->
                 val mainDiag = "${get(p.move(Left).move(Up))}$v${get(p.move(Right).move(Down))}"
                 val sideDiag = "${get(p.move(Right).move(Up))}$v${get(p.move(Left).move(Down))}"
-                with("MAS|SAM") { mainDiag in this && sideDiag in this }
+                mainDiag in mas && sideDiag in mas
             }
     }
 }
