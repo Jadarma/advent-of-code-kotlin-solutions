@@ -116,18 +116,21 @@ private inline fun <T : Any> String.parseGridInternal(
 
 //<editor-fold desc="Iterating Helpers">
 
+/** Describes a single [Grid] cell's [position] and [value]. */
+data class GridCell<T : Any>(val position: Point, val value: T)
+
 /**
  * Returns a [Sequence] of points and their respective grid values, from the [start] point, using the [next] function to
  * determine the next point.
  * Stops emitting values when the point is out of grid bounds.
  * If the start point is already outside, returns an empty sequence.
  */
-fun <T : Any> Grid<T>.move(start: Point, next: (Point, T) -> Point): Sequence<Pair<Point, T>> = sequence {
+fun <T : Any> Grid<T>.move(start: Point, next: (Point, T) -> Point): Sequence<GridCell<T>> = sequence {
     val area = Area(width, height)
     var current = start
     while (current in area) {
         val value = get(current)
-        yield(current to value)
+        yield(GridCell(current, value))
         current = next(current, value)
     }
 }
@@ -138,8 +141,17 @@ fun <T : Any> Grid<T>.move(start: Point, next: (Point, T) -> Point): Sequence<Pa
  * If the start point is already outside, returns an empty sequence.
  */
 @Suppress("NOTHING_TO_INLINE")
-inline fun <T : Any> Grid<T>.move(start: Point, direction: Direction): Sequence<Pair<Point, T>> =
+inline fun <T : Any> Grid<T>.move(start: Point, direction: Direction): Sequence<GridCell<T>> =
     move(start) { p, _ -> p.move(direction) }
+
+fun <T: Any> Grid<T>.points(): Sequence<GridCell<T>> = sequence {
+    for (x in 0 until width) {
+        for (y in 0 until height) {
+            yield(GridCell(Point(x, y), get(x, y)))
+        }
+    }
+}
+
 
 //</editor-fold>
 

@@ -66,7 +66,7 @@ class GridTest : FunSpec({
                 Triple(Point(5, 2), Down, "mt0"),
             ).forEach { (start, direction, expected) ->
                 grid.move(start, direction)
-                    .joinToString("") { it.second.toString() }
+                    .joinToString("") { it.value.toString() }
                     .shouldBe(expected)
             }
         }
