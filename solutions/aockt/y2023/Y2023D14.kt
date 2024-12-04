@@ -2,7 +2,10 @@ package aockt.y2023
 
 import aockt.util.parse
 import aockt.util.spacial.Direction
+import aockt.util.spacial.MutableGrid
 import aockt.util.spacial.Point
+import aockt.util.spacial.move
+import aockt.util.spacial.render
 import io.github.jadarma.aockt.core.Solution
 
 // TODO: Could use some more code cleanup.
@@ -11,39 +14,29 @@ object Y2023D14 : Solution {
     /** The type of rock you can encounter on the dish. */
     private enum class Rock { None, Rounded, Cubic }
 
-    /**
-     * Simulates rolling rocks on top of a parabolic reflector dish.
-     * @param initial The initial state of the dish surface.
-     */
-    private class ParabolicDish(initial: List<List<Rock>>) {
+    /** Simulates rolling rocks on top of a parabolic reflector dish. */
+    private class ParabolicDish(private val state: MutableGrid<Rock>) {
 
-        private val state: List<Array<Rock>> = run {
-            require(initial.isNotEmpty()) { "No state." }
-            val rows = initial.size
-            val columns = initial.first().size
-            val map = List(rows) { Array(columns) { Rock.None } }
-            require(initial.all { it.size == columns }) { "Initial state not a perfect grid." }
-            for (y in initial.indices) {
-                for (x in initial.first().indices) {
-                    map[y][x] = initial[y][x]
-                }
-            }
-            map
-        }
-
-        private val height = state.size
-        private val width = state.first().size
+        private val height get() = state.height
+        private val width get() = state.width
 
         /** Rolls a rounded rock from the given point in a [direction], returning the point where it rests. */
         private fun Point.lastFreeSpaceIn(direction: Direction): Point {
+
             val nx = when (direction) {
                 Direction.Left -> run {
-                    for (dx in x.toInt() downTo 1) if (state[y.toInt()][dx - 1] != Rock.None) return@run dx
+                    state
+                        .move(this, Direction.Left)
+                        .firstOrNull { (_, v) -> v != Rock.None }
+                        ?.let { (p, _) -> p.x.toInt() + 1 }
+                        ?: 0
+
+                    for (dx in x.toInt() downTo 1) if (state[dx - 1, y.toInt()] != Rock.None) return@run dx
                     0
                 }
 
                 Direction.Right -> run {
-                    for (dx in x.toInt()..<width.dec()) if (state[y.toInt()][dx + 1] != Rock.None) return@run dx
+                    for (dx in x.toInt()..<width.dec()) if (state[dx + 1, y.toInt()] != Rock.None) return@run dx
                     width.dec()
                 }
 
@@ -51,12 +44,12 @@ object Y2023D14 : Solution {
             }
             val ny = when (direction) {
                 Direction.Up -> run {
-                    for (dy in y.toInt()..<height.dec()) if (state[dy + 1][x.toInt()] != Rock.None) return@run dy
+                    for (dy in y.toInt()..<height.dec()) if (state[x.toInt(), dy + 1] != Rock.None) return@run dy
                     height.dec()
                 }
 
                 Direction.Down -> run {
-                    for (dy in y.toInt() downTo 1) if (state[dy - 1][x.toInt()] != Rock.None) return@run dy
+                    for (dy in y.toInt() downTo 1) if (state[x.toInt(), dy - 1] != Rock.None) return@run dy
                     0
                 }
 
@@ -72,11 +65,11 @@ object Y2023D14 : Solution {
 
             for (x in xRange) {
                 for (y in yRange) {
-                    if (state[y][x] != Rock.Rounded) continue
+                    if (state[x, y] != Rock.Rounded) continue
                     val rollStart = Point(x, y)
                     val rollEnd = rollStart.lastFreeSpaceIn(direction)
-                    state[rollStart.y.toInt()][rollStart.x.toInt()] = Rock.None
-                    state[rollEnd.y.toInt()][rollEnd.x.toInt()] = Rock.Rounded
+                    state[rollStart.x.toInt(),rollStart.y.toInt()] = Rock.None
+                    state[rollEnd.x.toInt(),rollEnd.y.toInt()] = Rock.Rounded
                 }
             }
         }
@@ -93,39 +86,31 @@ object Y2023D14 : Solution {
         fun roundedRocks(): Sequence<Point> = sequence {
             for (x in 0..<width) {
                 for (y in 0..<height) {
-                    if (state[y][x] == Rock.Rounded) yield(Point(x, y))
+                    if (state[x, y] == Rock.Rounded) yield(Point(x, y))
                 }
             }
         }
 
         /** Serializes the current state in a string. It can be either used to display, or as a cache key. */
-        fun render() = buildString {
-            for (y in height.dec() downTo 0) {
-                state[y].joinToString(" ") {
-                    when (it) {
-                        Rock.None -> "."
-                        Rock.Cubic -> "#"
-                        Rock.Rounded -> "O"
-                    }
-                }.let(::appendLine)
+        fun render() = state.render {
+            when (it) {
+                Rock.None -> '.'
+                Rock.Cubic -> '#'
+                Rock.Rounded -> 'O'
             }
         }
     }
 
     /** Parse the [input] and return the initial state of the [ParabolicDish]. */
     private fun parseInput(input: String): ParabolicDish = parse {
-        fun parseRock(symbol: Char) = when (symbol) {
-            '.' -> Rock.None
-            '#' -> Rock.Cubic
-            'O' -> Rock.Rounded
-            else -> error("Unknown symbol '$symbol'.")
-        }
-
-        input
-            .lines()
-            .asReversed()
-            .map { line -> line.map(::parseRock) }
-            .let(::ParabolicDish)
+        MutableGrid(input) {
+            when (it) {
+                '.' -> Rock.None
+                '#' -> Rock.Cubic
+                'O' -> Rock.Rounded
+                else -> error("Unknown symbol '$it'.")
+            }
+        }.let(::ParabolicDish)
     }
 
     override fun partOne(input: String) =
