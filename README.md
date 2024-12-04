@@ -15,13 +15,14 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2024 (4x⭐)</summary>
+    <summary>2024 (8x⭐)</summary>
 
 | Day | Title                                                   | Stars |
 |:---:|:--------------------------------------------------------|:-----:|
 | 01  | [Historian Hysteria](solutions/aockt/y2024/Y2024D01.kt) |  ⭐⭐   |
 | 02  | [Red-Nosed Reports](solutions/aockt/y2024/Y2024D02.kt)  |  ⭐⭐   |
 | 03  | [Mull It Over](solutions/aockt/y2024/Y2024D03.kt)       |  ⭐⭐   |
+| 04  | [Ceres Search](solutions/aockt/y2024/Y2024D04.kt)       |  ⭐⭐   |
 
 </details>
 
