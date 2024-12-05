@@ -15,7 +15,7 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2024 (8x⭐)</summary>
+    <summary>2024 (10x⭐)</summary>
 
 | Day | Title                                                   | Stars |
 |:---:|:--------------------------------------------------------|:-----:|
@@ -23,6 +23,7 @@ Table of contents to jump straight to the problem you're looking for.
 | 02  | [Red-Nosed Reports](solutions/aockt/y2024/Y2024D02.kt)  |  ⭐⭐   |
 | 03  | [Mull It Over](solutions/aockt/y2024/Y2024D03.kt)       |  ⭐⭐   |
 | 04  | [Ceres Search](solutions/aockt/y2024/Y2024D04.kt)       |  ⭐⭐   |
+| 05  | [Print Queue](solutions/aockt/y2024/Y2024D05.kt)        |  ⭐⭐   |
 
 </details>
 
