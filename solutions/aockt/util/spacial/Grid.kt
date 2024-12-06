@@ -22,6 +22,9 @@ interface Grid<out T : Any> {
      * @throws IndexOutOfBoundsException If point is out of bounds.
      */
     operator fun get(x: Int, y: Int): T
+
+    /** Return the value at coordinates ([x], [y]), or `null` if it is out of bounds. */
+    fun getOrNull(x: Int, y: Int): T?
 }
 
 /** A [Grid] that allows mutability. */
@@ -58,10 +61,13 @@ private class FiniteGridImpl<T : Any>(
         }
     }
 
-    override fun get(x: Int, y: Int): T {
-        require(x in 0..width && y in 0..<height) { "Point ($x, $y) is outside the grid." }
-        return data[y * width + x]
-    }
+    override fun get(x: Int, y: Int): T =
+        if(x !in 0..width || y !in 0..<height) throw IndexOutOfBoundsException("Point ($x, $y) is outside the grid.")
+        else data[y * width + x]
+
+    override fun getOrNull(x: Int, y: Int): T? =
+        if (x !in 0..width || y !in 0..<height) null
+        else data[y * width + x]
 
     override fun set(x: Int, y: Int, value: T) {
         check(mutable) { "This grid is immutable." }
@@ -72,7 +78,7 @@ private class FiniteGridImpl<T : Any>(
 
     override fun equals(other: Any?) = when {
         this === other -> true
-        other !is FiniteGridImpl<T> -> false
+        other !is FiniteGridImpl<*> -> false
         else -> data == other.data
     }
 }
@@ -162,6 +168,12 @@ fun <T: Any> Grid<T>.points(): Sequence<GridCell<T>> = sequence {
  * @throws IndexOutOfBoundsException If point is out of bounds.
  */
 operator fun <T : Any> Grid<T>.get(point: Point): T = get(point.x.toInt(), point.y.toInt())
+
+/** Return the value at this [point], or `null` if it is out of bounds. */
+fun <T: Any> Grid<T>.getOrNull(point: Point): T? = getOrNull(point.x.toInt(), point.y.toInt())
+
+/** Checks if the [point] is within the grid bounds. */
+operator fun Grid<*>.contains(point: Point): Boolean = getOrNull(point) != null
 
 /**
  * Updates this [point] with a new [value].
