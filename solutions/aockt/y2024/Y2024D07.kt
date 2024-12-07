@@ -3,19 +3,17 @@ package aockt.y2024
 import aockt.util.parse
 import aockt.y2024.Y2024D07.Operator.*
 import io.github.jadarma.aockt.core.Solution
-import kotlin.math.*
 
 object Y2024D07 : Solution {
 
     /** Possible operators for the calibration equations. */
-    private enum class Operator {
-        Add, Multiply, Concatenate;
+    private enum class Operator { Add, Multiply, Concatenate }
 
-        fun eval(a: Long, b: Long): Long = when (this) {
-            Add -> a + b
-            Multiply -> a * b
-            Concatenate -> 10.0.pow(floor(log10(b.toDouble()) + 1)).toLong() * a + b // Optimised "$a$b".toLong()
-        }
+    /** Undoes an operator by applying the opposite. Unsafe calls throw. */
+    private fun Operator.undo(a: Long, b: Long): Long = when(this) {
+        Add -> a - b
+        Multiply -> a / b
+        Concatenate -> a.toString().removeSuffix(b.toString()).toLong()
     }
 
     /** The numbers of a bridge repair calibration equation, with missing operators. */
@@ -28,14 +26,25 @@ object Y2024D07 : Solution {
         /** Determines if this equation has at least one solution using the given [operators]. */
         fun isSolvable(operators: Set<Operator>): Boolean {
 
-            // DFS + pruning: Since all operators result in larger numbers, quit early if overshooting the result.
-            fun recurse(acc: Long, index: Int): Boolean = when {
-                acc > result -> false
-                index + 1 >= operands.size -> acc == result
-                else -> operators.any { recurse(it.eval(acc, operands[index + 1]), index + 1) }
+            // DFS + pruning: Solve equation backwards, removing candidate operators that can't apply:
+            // - Can't be Add if subtracting would lead to negative numbers.
+            // - Can't be Multiply if division is not exact, or divisor is zero.
+            // - Can't be Concatenate if the number isn't a (strictly shorter) suffix of the other.
+            // When reaching the last number, the equation succeeds if it is equal to the accumulator.
+            fun recurse(acc: Long, index: Int): Boolean {
+                if (index == 0) return acc == operands.first()
+                val number = operands[index]
+                return operators
+                    .asSequence()
+                    .filterNot { it == Add && acc < number }
+                    .filterNot { it == Multiply && number == 0L }
+                    .filterNot { it == Multiply && acc % number != 0L }
+                    .filterNot { it == Concatenate && acc == number }
+                    .filterNot { it == Concatenate && !acc.toString().endsWith(number.toString())}
+                    .any { recurse(it.undo(acc, number), index - 1) }
             }
 
-            return recurse(operands.first(), 0)
+            return recurse(result, operands.lastIndex)
         }
     }
 
