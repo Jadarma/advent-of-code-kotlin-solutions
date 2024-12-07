@@ -15,7 +15,7 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2024 (12x⭐)</summary>
+    <summary>2024 (14x⭐)</summary>
 
 | Day | Title                                                   | Stars |
 |:---:|:--------------------------------------------------------|:-----:|
@@ -25,6 +25,7 @@ Table of contents to jump straight to the problem you're looking for.
 | 04  | [Ceres Search](solutions/aockt/y2024/Y2024D04.kt)       |  ⭐⭐   |
 | 05  | [Print Queue](solutions/aockt/y2024/Y2024D05.kt)        |  ⭐⭐   |
 | 06  | [Guard Gallivant](solutions/aockt/y2024/Y2024D06.kt)    |  ⭐⭐   |
+| 07  | [Bridge Repair](solutions/aockt/y2024/Y2024D07.kt)      |  ⭐⭐   |
 
 </details>
 
