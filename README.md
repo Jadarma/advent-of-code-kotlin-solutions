@@ -15,17 +15,18 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2024 (14x⭐)</summary>
+    <summary>2024 (16x⭐)</summary>
 
-| Day | Title                                                   | Stars |
-|:---:|:--------------------------------------------------------|:-----:|
-| 01  | [Historian Hysteria](solutions/aockt/y2024/Y2024D01.kt) |  ⭐⭐   |
-| 02  | [Red-Nosed Reports](solutions/aockt/y2024/Y2024D02.kt)  |  ⭐⭐   |
-| 03  | [Mull It Over](solutions/aockt/y2024/Y2024D03.kt)       |  ⭐⭐   |
-| 04  | [Ceres Search](solutions/aockt/y2024/Y2024D04.kt)       |  ⭐⭐   |
-| 05  | [Print Queue](solutions/aockt/y2024/Y2024D05.kt)        |  ⭐⭐   |
-| 06  | [Guard Gallivant](solutions/aockt/y2024/Y2024D06.kt)    |  ⭐⭐   |
-| 07  | [Bridge Repair](solutions/aockt/y2024/Y2024D07.kt)      |  ⭐⭐   |
+| Day | Title                                                      | Stars |
+|:---:|:-----------------------------------------------------------|:-----:|
+| 01  | [Historian Hysteria](solutions/aockt/y2024/Y2024D01.kt)    |  ⭐⭐   |
+| 02  | [Red-Nosed Reports](solutions/aockt/y2024/Y2024D02.kt)     |  ⭐⭐   |
+| 03  | [Mull It Over](solutions/aockt/y2024/Y2024D03.kt)          |  ⭐⭐   |
+| 04  | [Ceres Search](solutions/aockt/y2024/Y2024D04.kt)          |  ⭐⭐   |
+| 05  | [Print Queue](solutions/aockt/y2024/Y2024D05.kt)           |  ⭐⭐   |
+| 06  | [Guard Gallivant](solutions/aockt/y2024/Y2024D06.kt)       |  ⭐⭐   |
+| 07  | [Bridge Repair](solutions/aockt/y2024/Y2024D07.kt)         |  ⭐⭐   |
+| 08  | [Resonant Collinearity](solutions/aockt/y2024/Y2024D08.kt) |  ⭐⭐   |
 
 </details>
 
