@@ -65,11 +65,17 @@ object Y2024D09 : Solution {
                 }
             }
 
-            var pageIndex = data.lastIndex
-            while (pageIndex > 0) {
-                val freeSpace = freeSpaceOrNull(minFree = data[pageIndex].used, end = pageIndex)
-                if (freeSpace == null) pageIndex--
-                else move(pageIndex, freeSpace)
+            val processed = mutableSetOf<Int>()
+            var pageIndex = data.size
+            while (pageIndex > 1) {
+                pageIndex--
+                val page = data[pageIndex]
+                if (page.id in processed) continue
+                processed.add(page.id)
+
+                val freeSpace = freeSpaceOrNull(minFree = page.used, end = pageIndex) ?: continue
+                move(pageIndex, freeSpace)
+                pageIndex++
             }
         }
 
@@ -82,31 +88,30 @@ object Y2024D09 : Solution {
                 ?.let { start + it }
 
         /** If the last page uses more than one block, split the last block in its own page. */
-        private fun fragmentLast() {
-            if (data.last().used <= 1) return
-
-            val page = data.removeLast()
-            data.addLast(page.copy(used = page.used - 1, free = 0))
-            data.addLast(page.copy(used = 1, free = page.free))
+        private fun fragmentLast() = with(data) {
+            if (last().used <= 1) return
+            val page = removeLast()
+            addLast(page.copy(used = page.used - 1, free = 0))
+            addLast(page.copy(used = 1, free = page.free))
         }
 
         /** Moves the [source] page into the free space of the [destination] page. */
-        private fun move(source: Int, destination: Int) {
+        private fun move(source: Int, destination: Int) = with(data) {
             require(source > 0) { "Cannot move first page, it is already first." }
             require(destination < source) { "Pages can only be moved to the left." }
             require(destination >= 0) { "Negative indexes are invalid: $destination." }
-            require(data[destination].free >= data[source].used) { "Not enough space to perform move." }
+            require(this[destination].free >= this[source].used) { "Not enough space to perform move." }
 
-            val page = data.removeAt(source)
+            val page = removeAt(source)
 
             // Expand the free space of the previous page to cover the space of the removed page.
-            val previous = data.removeAt(source - 1)
-            data.add(source - 1, previous.copy(free = previous.free + page.size))
+            val previous = removeAt(source - 1)
+            add(source - 1, previous.copy(free = previous.free + page.size))
 
             // Shrink the page at insertion location, placing the page in its free space.
-            val insertedPage = data.removeAt(destination)
-            data.add(destination, insertedPage.copy(free = 0))
-            data.add(destination + 1, Page(page.id, page.used, insertedPage.free - page.used))
+            val insertedPage = removeAt(destination)
+            add(destination, insertedPage.copy(free = 0))
+            add(destination + 1, Page(page.id, page.used, insertedPage.free - page.used))
         }
     }
 
