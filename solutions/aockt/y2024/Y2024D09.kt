@@ -81,18 +81,13 @@ object Y2024D09 : Solution {
                 .takeIf { it != -1 }
                 ?.let { start + it }
 
-        /**
-         * If the last page uses more than one block, split the last block in its own page.
-         * Returns whether any modification took place.
-         */
-        fun fragmentLast(): Boolean {
-            if (data.last().used <= 1) return false
+        /** If the last page uses more than one block, split the last block in its own page. */
+        private fun fragmentLast() {
+            if (data.last().used <= 1) return
 
             val page = data.removeLast()
             data.addLast(page.copy(used = page.used - 1, free = 0))
             data.addLast(page.copy(used = 1, free = page.free))
-
-            return true
         }
 
         /** Moves the [source] page into the free space of the [destination] page. */
