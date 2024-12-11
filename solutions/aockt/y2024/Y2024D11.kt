@@ -14,15 +14,14 @@ object Y2024D11 : Solution {
     private value class Stone(val number: Long) {
 
         /** Returns the stone(s) that will appear after this one is blinked at. */
-        fun blink(): List<Stone> = buildList {
-            if (number == 0L) { add(Stone(1L)); return@buildList }
+        fun blink(): List<Stone> {
+            if (number == 0L) return listOf(Stone(1L))
 
             val digitCount = floor(log10(number.toDouble())).toInt() + 1
-            if (digitCount % 2 == 1) { add(Stone(number * 2024L)); return@buildList }
+            if (digitCount % 2 == 1) return listOf(Stone(number * 2024L))
 
             val split = 10.0.pow(digitCount / 2).toLong()
-            add(Stone(number / split))
-            add(Stone(number % split))
+            return listOf(Stone(number / split), Stone(number % split))
         }
     }
 
