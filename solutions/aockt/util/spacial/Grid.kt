@@ -62,11 +62,11 @@ private class FiniteGridImpl<T : Any>(
     }
 
     override fun get(x: Int, y: Int): T =
-        if(x !in 0..width || y !in 0..<height) throw IndexOutOfBoundsException("Point ($x, $y) is outside the grid.")
+        if(x !in 0..<width || y !in 0..<height) throw IndexOutOfBoundsException("Point ($x, $y) is outside the grid.")
         else data[y * width + x]
 
     override fun getOrNull(x: Int, y: Int): T? =
-        if (x !in 0..width || y !in 0..<height) null
+        if (x !in 0..<width || y !in 0..<height) null
         else data[y * width + x]
 
     override fun set(x: Int, y: Int, value: T) {
