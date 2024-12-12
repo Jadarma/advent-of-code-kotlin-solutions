@@ -15,7 +15,7 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2024 (22x⭐)</summary>
+    <summary>2024 (24x⭐)</summary>
 
 | Day | Title                                                      | Stars |
 |:---:|:-----------------------------------------------------------|:-----:|
@@ -30,6 +30,7 @@ Table of contents to jump straight to the problem you're looking for.
 | 09  | [Disk Fragmenter](solutions/aockt/y2024/Y2024D09.kt)       |  ⭐⭐   |
 | 10  | [Hoof It](solutions/aockt/y2024/Y2024D10.kt)               |  ⭐⭐   |
 | 11  | [Plutonian Pebbles](solutions/aockt/y2024/Y2024D11.kt)     |  ⭐⭐   |
+| 12  | [Garden Groups](solutions/aockt/y2024/Y2024D12.kt)         |  ⭐⭐   |
 
 </details>
 
