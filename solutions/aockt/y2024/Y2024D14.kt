@@ -12,21 +12,22 @@ object Y2024D14 : Solution {
     /** Info about the [position] and [velocity] of a restroom security robot. */
     private data class Robot(val position: Point, val velocity: Point) {
 
-        /** Compute the robot state after moving for one second. */
-        fun move(): Robot = copy(position = Point(position.x + velocity.x, position.y + velocity.y))
+        /** Compute the robot state after moving for one second, teleporting in order to stay within a bounded [area]. */
+        fun moveAndTeleport(area: Area): Robot {
+            val nextX = position.x + velocity.x
+            val nextY = position.y + velocity.y
 
-        /** Teleports the Robot back inside the bounds of an [area]. */
-        fun teleport(area: Area): Robot {
-            val x = when (position.x) {
-                in area.xRange -> position.x
-                in Int.MIN_VALUE..<area.xRange.first -> position.x + area.width
-                else -> position.x - area.width
+            val x = when (nextX) {
+                in area.xRange -> nextX
+                in Int.MIN_VALUE..<area.xRange.first -> nextX + area.width
+                else -> nextX - area.width
             }
-            val y = when (position.y) {
-                in area.yRange -> position.y
-                in Int.MIN_VALUE..<area.yRange.first -> position.y + area.height
-                else -> position.y - area.height
+            val y = when (nextY) {
+                in area.yRange -> nextY
+                in Int.MIN_VALUE..<area.yRange.first -> nextY + area.height
+                else -> nextY - area.height
             }
+
             return copy(position = Point(x, y))
         }
     }
@@ -43,8 +44,7 @@ object Y2024D14 : Solution {
             repeat(totalRobots) {
                 queue
                     .removeFirst()
-                    .move()
-                    .teleport(area)
+                    .moveAndTeleport(area)
                     .let(queue::addLast)
             }
         }
