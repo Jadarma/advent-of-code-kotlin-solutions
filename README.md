@@ -15,26 +15,27 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2024 (32x⭐)</summary>
+    <summary>2024 (34x⭐)</summary>
 
-| Day | Title                                                      | Stars |
-|:---:|:-----------------------------------------------------------|:-----:|
-| 01  | [Historian Hysteria](solutions/aockt/y2024/Y2024D01.kt)    |  ⭐⭐   |
-| 02  | [Red-Nosed Reports](solutions/aockt/y2024/Y2024D02.kt)     |  ⭐⭐   |
-| 03  | [Mull It Over](solutions/aockt/y2024/Y2024D03.kt)          |  ⭐⭐   |
-| 04  | [Ceres Search](solutions/aockt/y2024/Y2024D04.kt)          |  ⭐⭐   |
-| 05  | [Print Queue](solutions/aockt/y2024/Y2024D05.kt)           |  ⭐⭐   |
-| 06  | [Guard Gallivant](solutions/aockt/y2024/Y2024D06.kt)       |  ⭐⭐   |
-| 07  | [Bridge Repair](solutions/aockt/y2024/Y2024D07.kt)         |  ⭐⭐   |
-| 08  | [Resonant Collinearity](solutions/aockt/y2024/Y2024D08.kt) |  ⭐⭐   |
-| 09  | [Disk Fragmenter](solutions/aockt/y2024/Y2024D09.kt)       |  ⭐⭐   |
-| 10  | [Hoof It](solutions/aockt/y2024/Y2024D10.kt)               |  ⭐⭐   |
-| 11  | [Plutonian Pebbles](solutions/aockt/y2024/Y2024D11.kt)     |  ⭐⭐   |
-| 12  | [Garden Groups](solutions/aockt/y2024/Y2024D12.kt)         |  ⭐⭐   |
-| 13  | [Claw Contraption](solutions/aockt/y2024/Y2024D13.kt)      |  ⭐⭐   |
-| 14  | [Restroom Redoubt](solutions/aockt/y2024/Y2024D14.kt)      |  ⭐⭐   |
-| 15  | [Warehouse Woes](solutions/aockt/y2024/Y2024D15.kt)        |  ⭐⭐   |
-| 16  | [Reindeer Maze](solutions/aockt/y2024/Y2024D16.kt)         |  ⭐⭐   |
+| Day | Title                                                       | Stars |
+|:---:|:------------------------------------------------------------|:-----:|
+| 01  | [Historian Hysteria](solutions/aockt/y2024/Y2024D01.kt)     |  ⭐⭐   |
+| 02  | [Red-Nosed Reports](solutions/aockt/y2024/Y2024D02.kt)      |  ⭐⭐   |
+| 03  | [Mull It Over](solutions/aockt/y2024/Y2024D03.kt)           |  ⭐⭐   |
+| 04  | [Ceres Search](solutions/aockt/y2024/Y2024D04.kt)           |  ⭐⭐   |
+| 05  | [Print Queue](solutions/aockt/y2024/Y2024D05.kt)            |  ⭐⭐   |
+| 06  | [Guard Gallivant](solutions/aockt/y2024/Y2024D06.kt)        |  ⭐⭐   |
+| 07  | [Bridge Repair](solutions/aockt/y2024/Y2024D07.kt)          |  ⭐⭐   |
+| 08  | [Resonant Collinearity](solutions/aockt/y2024/Y2024D08.kt)  |  ⭐⭐   |
+| 09  | [Disk Fragmenter](solutions/aockt/y2024/Y2024D09.kt)        |  ⭐⭐   |
+| 10  | [Hoof It](solutions/aockt/y2024/Y2024D10.kt)                |  ⭐⭐   |
+| 11  | [Plutonian Pebbles](solutions/aockt/y2024/Y2024D11.kt)      |  ⭐⭐   |
+| 12  | [Garden Groups](solutions/aockt/y2024/Y2024D12.kt)          |  ⭐⭐   |
+| 13  | [Claw Contraption](solutions/aockt/y2024/Y2024D13.kt)       |  ⭐⭐   |
+| 14  | [Restroom Redoubt](solutions/aockt/y2024/Y2024D14.kt)       |  ⭐⭐   |
+| 15  | [Warehouse Woes](solutions/aockt/y2024/Y2024D15.kt)         |  ⭐⭐   |
+| 16  | [Reindeer Maze](solutions/aockt/y2024/Y2024D16.kt)          |  ⭐⭐   |
+| 17  | [Chronospatial Computer](solutions/aockt/y2024/Y2024D17.kt) |  ⭐⭐   |
 
 </details>
 
