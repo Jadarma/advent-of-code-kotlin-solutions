@@ -3,7 +3,7 @@ package aockt.util
 import java.util.PriorityQueue
 
 /** A type implementing this interface can represent a network of nodes usable for search algorithms. */
-interface Graph<T : Any> {
+fun interface Graph<T : Any> {
 
     /** Returns all the possible nodes to visit starting from this [node] associated with the cost of travel. */
     fun neighboursOf(node: T): Iterable<Pair<T, Int>>

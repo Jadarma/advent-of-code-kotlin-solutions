@@ -15,7 +15,7 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2024 (34x⭐)</summary>
+    <summary>2024 (36x⭐)</summary>
 
 | Day | Title                                                       | Stars |
 |:---:|:------------------------------------------------------------|:-----:|
@@ -36,6 +36,7 @@ Table of contents to jump straight to the problem you're looking for.
 | 15  | [Warehouse Woes](solutions/aockt/y2024/Y2024D15.kt)         |  ⭐⭐   |
 | 16  | [Reindeer Maze](solutions/aockt/y2024/Y2024D16.kt)          |  ⭐⭐   |
 | 17  | [Chronospatial Computer](solutions/aockt/y2024/Y2024D17.kt) |  ⭐⭐   |
+| 18  | [RAM Run](solutions/aockt/y2024/Y2024D18.kt)                |  ⭐⭐   |
 
 </details>
 
