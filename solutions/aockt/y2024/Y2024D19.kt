@@ -24,12 +24,12 @@ object Y2024D19 : Solution {
         patterns.split(", ").toSet() to models.lines()
     }
 
-    override fun partOne(input: String): Any {
+    override fun partOne(input: String): Int {
         val (patterns, models) = parseInput(input)
         return models.count { combos(patterns, it) > 0 }
     }
 
-    override fun partTwo(input: String): Any {
+    override fun partTwo(input: String): Long {
         val (patterns, models) = parseInput(input)
         return models.sumOf { combos(patterns, it) }
     }
