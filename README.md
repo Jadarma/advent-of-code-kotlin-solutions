@@ -15,7 +15,7 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2024 (38x⭐)</summary>
+    <summary>2024 (40x⭐)</summary>
 
 | Day | Title                                                       | Stars |
 |:---:|:------------------------------------------------------------|:-----:|
@@ -38,6 +38,7 @@ Table of contents to jump straight to the problem you're looking for.
 | 17  | [Chronospatial Computer](solutions/aockt/y2024/Y2024D17.kt) |  ⭐⭐   |
 | 18  | [RAM Run](solutions/aockt/y2024/Y2024D18.kt)                |  ⭐⭐   |
 | 19  | [Linen Layout](solutions/aockt/y2024/Y2024D19.kt)           |  ⭐⭐   |
+| 20  | [Race Condition](solutions/aockt/y2024/Y2024D20.kt)         |  ⭐⭐   |
 
 </details>
 
