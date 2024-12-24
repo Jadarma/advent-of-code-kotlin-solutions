@@ -15,7 +15,7 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2024 (46x⭐)</summary>
+    <summary>2024 (48x⭐)</summary>
 
 | Day | Title                                                       | Stars |
 |:---:|:------------------------------------------------------------|:-----:|
@@ -42,6 +42,7 @@ Table of contents to jump straight to the problem you're looking for.
 | 21  | [Keypad Conundrum](solutions/aockt/y2024/Y2024D21.kt)       |  ⭐⭐   |
 | 22  | [Monkey Market](solutions/aockt/y2024/Y2024D22.kt)          |  ⭐⭐   |
 | 23  | [LAN Party](solutions/aockt/y2024/Y2024D23.kt)              |  ⭐⭐   |
+| 24  | [Crossed Wires](solutions/aockt/y2024/Y2024D24.kt)          |  ⭐⭐   |
 
 </details>
 
