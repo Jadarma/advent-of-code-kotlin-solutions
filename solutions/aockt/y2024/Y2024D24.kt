@@ -144,7 +144,7 @@ object Y2024D24 : Solution {
 
             val expectedResult = inputs.wireAsLong('x').plus(inputs.wireAsLong('y'))
             val actualResult = swappedWires.runCircuit(inputs)
-            val falseCarryBit = (expectedResult xor actualResult).countTrailingZeroBits().toString()
+            val falseCarryBit = (expectedResult xor actualResult).countTrailingZeroBits().toString().padStart(2, '0')
 
             swappedWires
                 .filter { it.left.endsWith(falseCarryBit) && it.right.endsWith(falseCarryBit) }
