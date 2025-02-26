@@ -105,7 +105,7 @@ Table of contents to jump straight to the problem you're looking for.
 </details>
 
 <details>
-    <summary>2021 (47x⭐)</summary>
+    <summary>2021 (50x⭐)</summary>
 
 | Day | Title                                                        | Stars |
 |:---:|:-------------------------------------------------------------|:-----:|
@@ -131,8 +131,9 @@ Table of contents to jump straight to the problem you're looking for.
 | 20  | [Trench Map](solutions/aockt/y2021/Y2021D20.kt)              |  ⭐⭐   |
 | 21  | [Dirac Dice](solutions/aockt/y2021/Y2021D21.kt)              |  ⭐⭐   |
 | 22  | [Reactor Reboot](solutions/aockt/y2021/Y2021D22.kt)          |  ⭐⭐   |
+| 23  | [Amphipod](solutions/aockt/y2021/Y2021D23.kt)                |  ⭐⭐   |
 | 24  | [Arithmetic Logic Unit](solutions/aockt/y2021/Y2021D24.kt)   |  ⭐⭐   |
-| 25  | [Sea Cucumber](solutions/aockt/y2021/Y2021D25.kt)            |   ⭐   |
+| 25  | [Sea Cucumber](solutions/aockt/y2021/Y2021D25.kt)            |  ⭐⭐   |
 
 </details>
 
