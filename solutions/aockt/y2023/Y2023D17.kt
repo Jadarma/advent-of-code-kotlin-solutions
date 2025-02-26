@@ -1,9 +1,6 @@
 package aockt.y2023
 
-import aockt.util.Graph
-import aockt.util.parse
-import aockt.util.path
-import aockt.util.search
+import aockt.util.*
 import aockt.util.spacial.Area
 import aockt.util.spacial.Direction
 import aockt.util.spacial.Direction.*
@@ -65,16 +62,15 @@ object Y2023D17 : Solution {
 
         /** Navigate a crucible from [start] to [end], returning the path taken and the running cost along it. */
         fun navigate(start: Point, end: Point, withUltraCrucible: Boolean): List<Pair<Point, Int>> {
-            val graph = object : Graph<CrucibleSearchState> {
-                override fun neighboursOf(node: CrucibleSearchState) = neighboursOf(node, withUltraCrucible)
-            }
-
-            val search = graph.search(
-                start = CrucibleSearchState(start, Right, 0),
-                goalFunction = { it.position == end && (!withUltraCrucible || it.straightLineStreak >= 4) },
-            )
-
-            return search.path()!!.map { it.position to search.searchTree[it]!!.second }
+            return Pathfinding
+                .search(
+                    start = CrucibleSearchState(start, Right, 0),
+                    neighbours = { neighboursOf(it, withUltraCrucible) },
+                    goalFunction = { it.position == end && (!withUltraCrucible || it.straightLineStreak >= 4) },
+                    trackPath = true,
+                )!!
+                .path
+                .map { (node, cost) -> node.position to cost }
         }
     }
 

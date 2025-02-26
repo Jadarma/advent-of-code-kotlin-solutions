@@ -1,9 +1,7 @@
 package aockt.y2022
 
-import aockt.util.Graph
-import aockt.util.pathTo
-import aockt.util.search
 import io.github.jadarma.aockt.core.Solution
+import java.util.*
 
 object Y2022D16 : Solution {
 
@@ -250,4 +248,75 @@ object Y2022D16 : Solution {
 
     override fun partOne(input: String) = parseInput(input).let(::VolcanoSolo).solve(30)
     override fun partTwo(input: String) = parseInput(input).let(::VolcanoTeam).solve(26)
+
+    // TODO: This whole problem needs massive refactoring, the old search API no longer works here, because this uses
+    //       a flood-fill, anyway, I'll just copy paste that here so it's isolated from the rest of the project.
+    //       Everything below should be deleted.
+
+    fun interface Graph<T : Any> {
+
+        /** Returns all the possible nodes to visit starting from this [node] associated with the cost of travel. */
+        fun neighboursOf(node: T): Iterable<Pair<T, Int>>
+    }
+
+    data class SearchResult<T : Any>(
+        val startedFrom: T,
+        val destination: T?,
+        val searchTree: Map<T, Pair<T, Int>>,
+    )
+
+    data class SearchPath<T : Any>(
+        val path: List<T>,
+        val cost: Int,
+    ) : List<T> by path
+
+    fun <T : Any> SearchResult<T>.pathTo(node: T): SearchPath<T>? {
+        val cost = searchTree[node]?.second ?: return null
+        val path = buildList {
+            var current = node
+            while(true) {
+                add(current)
+                val previous = searchTree.getValue(current).first
+                if(previous == current) break
+                current = previous
+            }
+        }.asReversed()
+        return SearchPath(path, cost)
+    }
+
+    fun <T : Any> SearchResult<T>.path(): SearchPath<T>? = when(destination) {
+        null -> null
+        else -> pathTo(destination)
+    }
+
+    fun <T : Any> Graph<T>.search(
+        start: T,
+        maximumCost: Int = Int.MAX_VALUE,
+        onVisited: (T) -> Unit = {},
+        heuristic: (T) -> Int = { 0 },
+        goalFunction: (T) -> Boolean = { false },
+    ): SearchResult<T> {
+        val searchTree = mutableMapOf(start to (start to 0))
+
+        @Suppress("UNUSED_DESTRUCTURED_PARAMETER_ENTRY")
+        val queue = PriorityQueue(compareBy<Triple<T, Int, Int>> { (node, costSoFar, priority) -> priority })
+        queue.add(Triple(start,0, 0))
+
+        while (true) {
+            val (node, costSoFar, _) = queue.poll() ?: return SearchResult(start, null, searchTree)
+            onVisited(node)
+
+            if (goalFunction(node)) return SearchResult(start, node, searchTree)
+
+            neighboursOf(node)
+                .filter { it.first !in searchTree }
+                .forEach { (next, cost) ->
+                    val nextCost = costSoFar + cost
+                    if (nextCost <= maximumCost && nextCost <= (searchTree[next]?.second ?: Int.MAX_VALUE)) {
+                        queue.add(Triple(next, nextCost, nextCost + heuristic(next)))
+                        searchTree[next] = node to nextCost
+                    }
+                }
+        }
+    }
 }

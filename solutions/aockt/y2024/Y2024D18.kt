@@ -11,19 +11,23 @@ object Y2024D18 : Solution {
      * [corrupted] points, or -1 if it is impossible to do so.
      */
     private fun stepsToEscape(area: Area, corrupted: Set<Point>): Int =
-        Graph<Pair<Point, Direction>> { (point, direction) ->
-            Direction.all
-                .asSequence()
-                .minus(direction.opposite)
-                .map { point.move(it) to it }
-                .filter { it.first in area }
-                .filterNot { it.first in corrupted }
-                .map { it to 1 }
-                .asIterable()
-        }.search(
-            start = Point(0, 0) to Direction.Right,
-            goalFunction = { it.first == Point(area.width - 1, area.height - 1) },
-        ).path()?.cost ?: -1
+        Pathfinding
+            .search<Pair<Point, Direction>>(
+                start = Point(0, 0) to Direction.Right,
+                goalFunction = { it.first == Point(area.width - 1, area.height - 1) },
+                neighbours = { (point, direction) ->
+                    Direction.all
+                        .asSequence()
+                        .minus(direction.opposite)
+                        .map { point.move(it) to it }
+                        .filter { it.first in area }
+                        .filterNot { it.first in corrupted }
+                        .map { it to 1 }
+                        .asIterable()
+                },
+            )
+            ?.cost
+            ?: -1
 
     /**
      * Parse the [input] and return the surrounding [Area] and the list of [Point]s that will get corrupted.
