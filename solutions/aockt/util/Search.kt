@@ -3,6 +3,7 @@ package aockt.util
 import java.util.PriorityQueue
 
 /** A type implementing this interface can represent a network of nodes usable for search algorithms. */
+@Deprecated("Prefer aockt.util.Pathfinding")
 fun interface Graph<T : Any> {
 
     /** Returns all the possible nodes to visit starting from this [node] associated with the cost of travel. */
@@ -18,6 +19,7 @@ fun interface Graph<T : Any> {
  * @property searchTree Extra information about the search, associating visited nodes to their previous node in the
  *   path back to the origin, as well as their total cost from the origin.
  */
+@Deprecated("Prefer aockt.util.Pathfinding")
 data class SearchResult<T : Any>(
     val startedFrom: T,
     val destination: T?,
@@ -30,6 +32,7 @@ data class SearchResult<T : Any>(
  * @property path The list of all nodes in this path, including the origin and destination nodes.
  * @property cost The total cost of this path.
  */
+@Deprecated("Prefer aockt.util.Pathfinding")
 data class SearchPath<T : Any>(
     val path: List<T>,
     val cost: Int,
@@ -40,6 +43,7 @@ data class SearchPath<T : Any>(
  * Returns the shortest known path towards that [node], or `null` if the node is unreachable from the origin, or if the
  * node has not been visited by the search algorithm before reaching a destination.
  */
+@Deprecated("Prefer aockt.util.Pathfinding")
 fun <T : Any> SearchResult<T>.pathTo(node: T): SearchPath<T>? {
     val cost = searchTree[node]?.second ?: return null
     val path = buildList {
@@ -59,6 +63,7 @@ fun <T : Any> SearchResult<T>.pathTo(node: T): SearchPath<T>? {
  * Returns the shortest known path towards the node that fulfilled the destination criteria.
  * If multiple such nodes exist, the one with the lowest cost is chosen.
  */
+@Deprecated("Prefer aockt.util.Pathfinding")
 fun <T : Any> SearchResult<T>.path(): SearchPath<T>? = when(destination) {
     null -> null
     else -> pathTo(destination)
@@ -77,6 +82,7 @@ fun <T : Any> SearchResult<T>.path(): SearchPath<T>? = when(destination) {
  *   The search will stop upon the first such node to be found.
  *   If no function is defined, the entire graph will be searched.
  */
+@Deprecated("Prefer aockt.util.Pathfinding")
 fun <T : Any> Graph<T>.search(
     start: T,
     maximumCost: Int = Int.MAX_VALUE,

@@ -14,6 +14,6 @@ class Y2021D23Test : AdventSpec<Y2021D23>({
           #########
     """.trimIndent()
 
-    partOne { exampleInput shouldOutput 12_521 }
-    partTwo { exampleInput shouldOutput 44_169 }
+    partOne(expensive = true) { exampleInput shouldOutput 12_521 }
+    partTwo(expensive = true) { exampleInput shouldOutput 44_169 }
 })

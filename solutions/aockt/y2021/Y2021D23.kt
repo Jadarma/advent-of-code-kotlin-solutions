@@ -1,8 +1,7 @@
 package aockt.y2021
 
-import aockt.util.Graph
 import aockt.util.parse
-import aockt.util.search
+import aockt.util.Pathfinding
 import io.github.jadarma.aockt.core.Solution
 import kotlin.math.abs
 
@@ -143,13 +142,15 @@ object Y2021D23 : Solution {
     }
 
     /** Common solution for both parts. */
-    private fun solve(input: String, deep: Boolean): Int {
-        val start = parseInput(input, deep)
-
-        return Graph<State> { it.neighbors() }
-            .search(start) { it.isFinal() }
-            .cost
-    }
+    private fun solve(input: String, deep: Boolean): Int =
+        Pathfinding
+            .search(
+                start = parseInput(input, deep),
+                neighbours = { it.neighbors() },
+                goalFunction = { it.isFinal() },
+            )
+            ?.cost
+            ?: -1
 
     override fun partOne(input: String): Int = solve(input, deep = false)
     override fun partTwo(input: String): Int = solve(input, deep = true)
