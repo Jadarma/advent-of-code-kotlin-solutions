@@ -3,12 +3,14 @@ package aockt
 import io.github.jadarma.aockt.test.AocKtExtension
 import io.kotest.core.config.AbstractProjectConfig
 import io.kotest.core.extensions.Extension
+import io.kotest.engine.concurrency.SpecExecutionMode
 
 object TestConfig : AbstractProjectConfig() {
 
-    override fun extensions() = listOf<Extension>(
+    override val extensions = listOf<Extension>(
         AocKtExtension()
     )
 
-    override val parallelism: Int = Runtime.getRuntime().availableProcessors()
+    override val specExecutionMode: SpecExecutionMode = SpecExecutionMode.Concurrent
+    override val displayFullTestPath: Boolean = true
 }

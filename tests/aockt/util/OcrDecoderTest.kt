@@ -1,6 +1,6 @@
 package aockt.util
 
-import io.kotest.core.spec.DisplayName
+import io.kotest.core.annotation.DisplayName
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 

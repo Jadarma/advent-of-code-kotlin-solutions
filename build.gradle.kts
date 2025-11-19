@@ -1,11 +1,9 @@
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
-import org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED
-import org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED
-import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
+import org.gradle.api.tasks.testing.logging.TestLogEvent.*
 
 plugins {
-    kotlin("jvm") version "2.0.21"
-    kotlin("plugin.serialization") version "2.0.21"
+    kotlin("jvm") version "2.2.21"
+    kotlin("plugin.serialization") version "2.2.21"
 }
 
 kotlin {
@@ -27,9 +25,9 @@ repositories {
 }
 
 dependencies {
-    val aocktVersion = "0.2.1"
-    val kotestVersion = "5.9.1"
-    val kotlinSerializationVersion = "1.7.3"
+    val aocktVersion = "0.3.0"
+    val kotestVersion = "6.0.5"
+    val kotlinSerializationVersion = "1.9.0"
 
     implementation("io.github.jadarma.aockt:aockt-core:$aocktVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinSerializationVersion")
@@ -40,6 +38,19 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 
+    // Don't cache tests, make them run again every time.
+    outputs.upToDateWhen { false }
+
+    // Pass along system properties for Kotest.
+    systemProperties = System.getProperties()
+        .asIterable()
+        .filter { it.key.toString().startsWith("kotest.") }
+        .associate { it.key.toString() to it.value }
+
+    // Configure Kotest. The FQN is required for locating the custom test config.
+    systemProperty("kotest.framework.config.fqn", "aockt.TestConfig")
+
+    // Display nicer test logs when running from CLI.
     testLogging {
         events = setOf(PASSED, FAILED, SKIPPED)
         exceptionFormat = FULL
