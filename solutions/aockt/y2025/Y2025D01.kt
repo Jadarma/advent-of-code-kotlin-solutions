@@ -13,14 +13,13 @@ class Y2025D01 : Solution {
      */
     private fun solve(bumps: List<Int>, onlyExact: Boolean): Int =
         bumps.fold(50 to 0) { (dial, zeroes), bump ->
-            val nextDial = (dial + bump).mod(100)
-
             val untilNextZero = when {
                 dial == 0 -> 100
                 bump > 0 -> 100 - dial
                 else -> dial
             }
 
+            val nextDial = (dial + bump).mod(100)
             val nextZeroes = zeroes + when {
                 onlyExact -> if (nextDial == 0) 1 else 0
                 bump.absoluteValue >= untilNextZero -> 1 + (bump.absoluteValue - untilNextZero) / 100
@@ -39,6 +38,6 @@ class Y2025D01 : Solution {
             .map(String::toInt)
             .toList()
 
-    override fun partOne(input: String): Int = solve(parseInput(input), true)
-    override fun partTwo(input: String): Int = solve(parseInput(input), false)
+    override fun partOne(input: String): Int = solve(parseInput(input), onlyExact = true)
+    override fun partTwo(input: String): Int = solve(parseInput(input), onlyExact = false)
 }
