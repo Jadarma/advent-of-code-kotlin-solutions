@@ -15,6 +15,15 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
+    <summary>2024 (0x⭐)</summary>
+
+| Day | Title                                                | Stars |
+|:---:|:-----------------------------------------------------|:-----:|
+| 01  | [Secret Entrance](solutions/aockt/y2025/Y2025D01.kt) |  ⭐⭐   |
+
+</details>
+
+<details>
     <summary>2024 (50x⭐)</summary>
 
 | Day | Title                                                       | Stars |
