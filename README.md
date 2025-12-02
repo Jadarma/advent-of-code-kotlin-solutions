@@ -20,6 +20,7 @@ Table of contents to jump straight to the problem you're looking for.
 | Day | Title                                                | Stars |
 |:---:|:-----------------------------------------------------|:-----:|
 | 01  | [Secret Entrance](solutions/aockt/y2025/Y2025D01.kt) |  ⭐⭐   |
+| 02  | [Gift Shop](solutions/aockt/y2025/Y2025D02.kt)       |  ⭐⭐   |
 
 </details>
 
