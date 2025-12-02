@@ -26,7 +26,7 @@ repositories {
 
 dependencies {
     val aocktVersion = "0.3.0"
-    val kotestVersion = "6.0.5"
+    val kotestVersion = "6.0.7"
     val kotlinSerializationVersion = "1.9.0"
 
     implementation("io.github.jadarma.aockt:aockt-core:$aocktVersion")
