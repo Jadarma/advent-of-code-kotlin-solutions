@@ -1,9 +1,20 @@
 package aockt.y2025
 
+import aockt.util.parse
 import io.github.jadarma.aockt.core.Solution
 import kotlin.math.absoluteValue
 
-class Y2025D01 : Solution {
+object Y2025D01 : Solution {
+
+    /** Parse the [input] and return the list of bump value. Negative means to the left. */
+    private fun parseInput(input: String): List<Int> = parse {
+        input
+            .lineSequence()
+            .map { line -> line.replace("L", "-") }
+            .map { line -> line.replace("R", "+") }
+            .map(String::toInt)
+            .toList()
+    }
 
     /**
      * Calculate how many times the dial clicks on 0 when starting the lock at 50 and executing a series of [bumps].
@@ -28,15 +39,6 @@ class Y2025D01 : Solution {
 
             nextDial to nextZeroes
         }.second
-
-    /** Parse the [input] and return the list of bump value. Negative means to the left. */
-    private fun parseInput(input: String): List<Int> =
-        input
-            .lineSequence()
-            .map { line -> line.replace("L", "-") }
-            .map { line -> line.replace("R", "+") }
-            .map(String::toInt)
-            .toList()
 
     override fun partOne(input: String): Int = solve(parseInput(input), onlyExact = true)
     override fun partTwo(input: String): Int = solve(parseInput(input), onlyExact = false)
