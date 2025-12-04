@@ -15,13 +15,14 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2025 (6x⭐)</summary>
+    <summary>2025 (8x⭐)</summary>
 
-| Day | Title                                                | Stars |
-|:---:|:-----------------------------------------------------|:-----:|
-| 01  | [Secret Entrance](solutions/aockt/y2025/Y2025D01.kt) |  ⭐⭐   |
-| 02  | [Gift Shop](solutions/aockt/y2025/Y2025D02.kt)       |  ⭐⭐   |
-| 03  | [Lobby](solutions/aockt/y2025/Y2025D03.kt)           |  ⭐⭐   |
+| Day | Title                                                    | Stars |
+|:---:|:---------------------------------------------------------|:-----:|
+| 01  | [Secret Entrance](solutions/aockt/y2025/Y2025D01.kt)     |  ⭐⭐   |
+| 02  | [Gift Shop](solutions/aockt/y2025/Y2025D02.kt)           |  ⭐⭐   |
+| 03  | [Lobby](solutions/aockt/y2025/Y2025D03.kt)               |  ⭐⭐   |
+| 04  | [Printing Department](solutions/aockt/y2025/Y2025D04.kt) |  ⭐⭐   |
 
 </details>
 
