@@ -1,6 +1,5 @@
 package aockt.util.spacial3d
 
-import kotlin.math.pow
 import kotlin.math.sqrt
 
 /**
@@ -26,9 +25,8 @@ data class Point3D(val x: Long, val y: Long, val z: Long) {
 
 /** Calculates the Euclidean distance between this and the [other] point. */
 infix fun Point3D.distanceTo(other: Point3D): Long {
-    var d = 0.0
-    d += (this.x - other.x).toDouble().pow(2.0)
-    d += (this.y - other.y).toDouble().pow(2.0)
-    d += (this.z - other.z).toDouble().pow(2.0)
-    return sqrt(d).toLong()
+    val dx = this.x - other.x
+    val dy = this.y - other.y
+    val dz = this.z - other.z
+    return sqrt((dx * dx + dy * dy + dz * dz).toDouble()).toLong()
 }
