@@ -1,5 +1,9 @@
 package aockt.util.spacial
 
+import kotlin.math.absoluteValue
+import kotlin.math.max
+import kotlin.math.min
+
 /**
  * A rectangular region defined by coordinate ranges.
  *
@@ -16,8 +20,11 @@ data class Area(val xRange: LongRange, val yRange: LongRange) : Iterable<Point> 
     /** Alternate constructor that taxes a width and height and returns an area starting from the origin. */
     constructor(width: Int, height: Int) : this(0L..<width, 0L..<height)
 
-    /** Alternate constructor that calculates the region from the [bottomLeft] and [topRight] points of a rectangle. */
-    constructor(bottomLeft: Point, topRight: Point) : this(bottomLeft.x..topRight.x, bottomLeft.y..topRight.y)
+    /** Alternate constructor that calculates the region from two corner points of a rectangle. */
+    constructor(p1: Point, p2: Point) : this(
+        xRange = min(p1.x, p2.x)..max(p1.x, p2.x),
+        yRange = min(p1.y, p2.y)..max(p1.y, p2.y),
+    )
 
     /** Alternate constructor that converts from integer ranges, for convenience. */
     constructor(xRange: IntRange, yRange: IntRange) : this(
@@ -57,3 +64,8 @@ infix fun Area.overlaps(other: Area): Boolean {
     val verticalOverlap = maxOf(yRange.first, other.yRange.first) <= minOf(yRange.last, other.yRange.last)
     return horizontalOverlap && verticalOverlap
 }
+
+/** Calculates the size of the area. */
+val Area.size: Long
+    get() =
+        (xRange.last - xRange.first).absoluteValue.inc() * (yRange.last - yRange.first).absoluteValue.inc()
