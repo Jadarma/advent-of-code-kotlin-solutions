@@ -64,10 +64,18 @@ object Y2025D09 : Solution {
             .toList()
     }
 
-    override fun partOne(input: String): Long = parseInput(input).toRectangles().maxOf { it.size }
-
-    override fun partTwo(input: String): Long = parseInput(input).run {
-        val edges = toEdges()
-        toRectangles().filter { it.isValid(edges) }.maxOf { it.size }
+    /**
+     * Solve the tiling problem, finding the largest rectangle with two corners as [redTiles].
+     * If [useGreenTiles] is set, only considers rectangles that are filled with colored tiles.
+     */
+    private fun solve(redTiles: List<Point>, useGreenTiles: Boolean): Area {
+        val edges = if(useGreenTiles) redTiles.toEdges() else emptySet()
+        return redTiles
+            .toRectangles()
+            .filter { it.isValid(edges) }
+            .maxBy { it.size }
     }
+
+    override fun partOne(input: String): Long = solve(parseInput(input), useGreenTiles = false).size
+    override fun partTwo(input: String): Long = solve(parseInput(input), useGreenTiles = true).size
 }
