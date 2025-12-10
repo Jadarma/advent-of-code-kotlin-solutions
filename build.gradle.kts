@@ -33,6 +33,10 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinSerializationVersion")
     testImplementation("io.github.jadarma.aockt:aockt-test:$aocktVersion")
     testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
+
+    // For those pesky Linear Algebra days... Am sorry.
+    // Current list of shame: Y2025D10
+    implementation("tools.aqua:z3-turnkey:4.14.1")
 }
 
 tasks.test {
