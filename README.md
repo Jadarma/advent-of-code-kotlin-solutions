@@ -15,7 +15,7 @@ _"Anything that's worth doing, is worth overdoing."_
 Table of contents to jump straight to the problem you're looking for.
 
 <details open>
-    <summary>2025 (18x⭐)</summary>
+    <summary>2025 (22x⭐)</summary>
 
 | Day | Title                                                    | Stars |
 |:---:|:---------------------------------------------------------|:-----:|
@@ -29,6 +29,7 @@ Table of contents to jump straight to the problem you're looking for.
 | 08  | [Playground](solutions/aockt/y2025/Y2025D08.kt)          |  ⭐⭐   |
 | 09  | [Movie Theater](solutions/aockt/y2025/Y2025D09.kt)       |  ⭐⭐   |
 | 10  | [Factory](solutions/aockt/y2025/Y2025D10.kt)             |  ⭐⭐   |
+| 11  | [Reactor](solutions/aockt/y2025/Y2025D11.kt)             |  ⭐⭐   |
 
 </details>
 
