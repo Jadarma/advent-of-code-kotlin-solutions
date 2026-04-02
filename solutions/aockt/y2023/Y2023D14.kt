@@ -6,7 +6,7 @@ import aockt.util.spacial.MutableGrid
 import aockt.util.spacial.Point
 import aockt.util.spacial.move
 import aockt.util.spacial.render
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 // TODO: Could use some more code cleanup.
 object Y2023D14 : Solution {

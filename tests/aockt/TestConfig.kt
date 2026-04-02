@@ -1,6 +1,6 @@
 package aockt
 
-import io.github.jadarma.aockt.test.AocKtExtension
+import io.github.jadarma.aockt.AocKtExtension
 import io.kotest.core.config.AbstractProjectConfig
 import io.kotest.core.extensions.Extension
 import io.kotest.engine.concurrency.SpecExecutionMode
@@ -12,5 +12,4 @@ object TestConfig : AbstractProjectConfig() {
     )
 
     override val specExecutionMode: SpecExecutionMode = SpecExecutionMode.Concurrent
-    override val displayFullTestPath: Boolean = true
 }

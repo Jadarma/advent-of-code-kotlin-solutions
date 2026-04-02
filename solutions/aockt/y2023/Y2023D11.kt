@@ -4,7 +4,7 @@ import aockt.util.math.distinctPairs
 import aockt.util.parse
 import aockt.util.spacial.Point
 import aockt.util.spacial.distanceTo
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2023D11 : Solution {
 

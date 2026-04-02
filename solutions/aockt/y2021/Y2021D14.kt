@@ -1,6 +1,6 @@
 package aockt.y2021
 
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2021D14 : Solution {
 

@@ -1,7 +1,7 @@
 package aockt.y2015
 
 import aockt.y2015.Y2015D06.Action.*
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 import kotlin.math.abs
 
 object Y2015D06 : Solution {

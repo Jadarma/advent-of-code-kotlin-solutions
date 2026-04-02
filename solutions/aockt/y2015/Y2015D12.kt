@@ -1,6 +1,6 @@
 package aockt.y2015
 
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement

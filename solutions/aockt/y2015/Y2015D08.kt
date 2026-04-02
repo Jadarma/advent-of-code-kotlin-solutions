@@ -1,6 +1,6 @@
 package aockt.y2015
 
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 /**
  * **NOTE:** This solution assumes the input strings are valid (i.e. all escapes are correct, and surrounding quotes

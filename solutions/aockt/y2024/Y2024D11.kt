@@ -1,8 +1,7 @@
 package aockt.y2024
 
 import aockt.util.parse
-import aockt.y2024.Y2024D11.Stone
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 import kotlin.math.floor
 import kotlin.math.log10
 import kotlin.math.pow

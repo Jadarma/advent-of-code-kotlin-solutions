@@ -8,7 +8,7 @@ import aockt.util.spacial.Point
 import aockt.util.spacial.move
 import aockt.util.spacial.opposite
 import aockt.util.validation.assume
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2023D23 : Solution {
 

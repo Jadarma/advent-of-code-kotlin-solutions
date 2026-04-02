@@ -3,7 +3,7 @@ package aockt.y2024
 import aockt.util.math.distinctPairs
 import aockt.util.parse
 import aockt.util.spacial.*
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2024D08 : Solution {
 

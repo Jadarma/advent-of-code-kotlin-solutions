@@ -1,6 +1,6 @@
 package aockt.y2021
 
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 import kotlin.math.sign
 
 object Y2021D05 : Solution {

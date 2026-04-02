@@ -6,7 +6,7 @@ import aockt.util.spacial.Direction.*
 import aockt.util.spacial.Point
 import aockt.util.spacial.move
 import aockt.util.spacial.polygonArea
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2023D18 : Solution {
 

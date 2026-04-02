@@ -7,7 +7,7 @@ import aockt.util.spacial.get
 import aockt.util.spacial.Point
 import aockt.util.spacial.move
 import aockt.util.spacial.points
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2024D04 : Solution {
 

@@ -1,6 +1,6 @@
 package aockt.y2015
 
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 import java.security.MessageDigest
 
 object Y2015D04 : Solution {

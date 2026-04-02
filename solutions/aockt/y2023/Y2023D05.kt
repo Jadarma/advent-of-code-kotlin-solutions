@@ -1,7 +1,7 @@
 package aockt.y2023
 
 import aockt.util.parse
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2023D05 : Solution {
 

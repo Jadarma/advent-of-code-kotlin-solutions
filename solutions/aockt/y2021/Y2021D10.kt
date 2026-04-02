@@ -1,7 +1,7 @@
 package aockt.y2021
 
 import aockt.y2021.Y2021D10.SyntaxCheckResult.*
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2021D10 : Solution {
 

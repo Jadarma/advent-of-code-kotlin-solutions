@@ -7,7 +7,7 @@ import aockt.util.spacial.move
 import aockt.util.spacial.opposite
 import aockt.util.parse
 import aockt.util.spacial.polygonArea
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2023D10 : Solution {
 

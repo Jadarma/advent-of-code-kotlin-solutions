@@ -4,7 +4,7 @@ import aockt.util.spacial.Point
 import aockt.util.spacial.Area
 import aockt.util.spacial.coerceIn
 import aockt.util.parse
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2023D03 : Solution {
 

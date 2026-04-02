@@ -2,7 +2,7 @@ package aockt.y2021
 
 import aockt.util.parse
 import aockt.util.Pathfinding
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 import kotlin.math.abs
 
 object Y2021D23 : Solution {

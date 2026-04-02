@@ -6,7 +6,7 @@ import aockt.util.spacial.Direction.*
 import aockt.util.spacial.*
 import aockt.y2024.Y2024D15.Warehouse.Tile
 import aockt.y2024.Y2024D15.Warehouse.Tile.*
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2024D15 : Solution {
 

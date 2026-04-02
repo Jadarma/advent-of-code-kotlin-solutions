@@ -7,7 +7,7 @@ import aockt.util.spacial.Direction.*
 import aockt.util.spacial.Point
 import aockt.util.spacial.move
 import aockt.y2023.Y2023D16.Element.*
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2023D16 : Solution {
 

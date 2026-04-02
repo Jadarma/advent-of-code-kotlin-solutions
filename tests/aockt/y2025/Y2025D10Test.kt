@@ -1,9 +1,7 @@
 package aockt.y2025
 
-import io.github.jadarma.aockt.test.AdventDay
-import io.github.jadarma.aockt.test.AdventSpec
-import io.github.jadarma.aockt.test.ExecMode
-import io.kotest.matchers.shouldBe
+import io.github.jadarma.aockt.AdventDay
+import io.github.jadarma.aockt.AdventSpec
 
 @AdventDay(2025, 10, "Factory")
 class Y2025D10Test : AdventSpec<Y2025D10>({
@@ -15,6 +13,4 @@ class Y2025D10Test : AdventSpec<Y2025D10>({
 
     partOne { exampleInput shouldOutput 7 }
     partTwo { exampleInput shouldOutput 33 }
-
-//    debug { solution.partTwo(input) shouldBe 2 }
 })

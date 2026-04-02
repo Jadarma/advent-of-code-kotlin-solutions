@@ -2,12 +2,12 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
 import org.gradle.api.tasks.testing.logging.TestLogEvent.*
 
 plugins {
-    kotlin("jvm") version "2.2.21"
-    kotlin("plugin.serialization") version "2.2.21"
+    kotlin("jvm") version "2.3.20"
+    kotlin("plugin.serialization") version "2.3.20"
 }
 
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(24)
 }
 
 sourceSets {
@@ -25,9 +25,9 @@ repositories {
 }
 
 dependencies {
-    val aocktVersion = "0.3.0"
-    val kotestVersion = "6.0.7"
-    val kotlinSerializationVersion = "1.9.0"
+    val aocktVersion = "0.4.0"
+    val kotestVersion = "6.1.10"
+    val kotlinSerializationVersion = "1.10.0"
 
     implementation("io.github.jadarma.aockt:aockt-core:$aocktVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinSerializationVersion")

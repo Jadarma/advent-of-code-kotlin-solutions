@@ -5,7 +5,7 @@ import aockt.util.spacial.*
 import aockt.util.spacial.Direction.*
 import aockt.y2024.Y2024D06.LabMap.*
 import aockt.y2024.Y2024D06.LabMap.CellState.*
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2024D06 : Solution {
 

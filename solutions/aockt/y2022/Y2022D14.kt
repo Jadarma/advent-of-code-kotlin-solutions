@@ -1,7 +1,7 @@
 package aockt.y2022
 
 import aockt.y2022.Y2022D14.FallingSandSimulation.*
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2022D14 : Solution {
 

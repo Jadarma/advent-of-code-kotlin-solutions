@@ -1,7 +1,7 @@
 package aockt.y2021
 
 import aockt.util.OcrDecoder
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2021D13 : Solution {
 

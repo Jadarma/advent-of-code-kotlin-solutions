@@ -4,7 +4,7 @@ import aockt.util.parse
 import aockt.y2023.Y2023D12.Condition.Damaged
 import aockt.y2023.Y2023D12.Condition.Operational
 import aockt.y2023.Y2023D12.Condition.Unknown
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2023D12 : Solution {
 

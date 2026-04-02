@@ -1,7 +1,7 @@
 package aockt.y2022
 
-import io.github.jadarma.aockt.test.AdventDay
-import io.github.jadarma.aockt.test.AdventSpec
+import io.github.jadarma.aockt.AdventDay
+import io.github.jadarma.aockt.AdventSpec
 
 @AdventDay(2022, 7, "No Space Left on Device")
 class Y2022D07Test : AdventSpec<Y2022D07>({

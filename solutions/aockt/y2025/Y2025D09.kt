@@ -6,7 +6,7 @@ import aockt.util.spacial.Area
 import aockt.util.spacial.Point
 import aockt.util.spacial.overlaps
 import aockt.util.spacial.size
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2025D09 : Solution {
 

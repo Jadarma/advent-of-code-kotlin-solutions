@@ -4,7 +4,7 @@ import aockt.util.parse
 import aockt.util.spacial.Direction.*
 import aockt.util.spacial.*
 import aockt.y2024.Y2024D16.ReindeerMaze.Tile.*
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 import java.util.*
 
 object Y2024D16 : Solution {

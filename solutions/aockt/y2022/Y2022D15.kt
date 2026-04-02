@@ -1,6 +1,6 @@
 package aockt.y2022
 
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 import kotlin.math.absoluteValue
 
 object Y2022D15 : Solution {

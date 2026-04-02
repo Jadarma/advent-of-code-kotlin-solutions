@@ -2,7 +2,7 @@ package aockt.y2022
 
 import aockt.y2022.Y2022D02.RpsChoice.*
 import aockt.y2022.Y2022D02.RpsChoice.Companion.versus
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2022D02 : Solution {
 

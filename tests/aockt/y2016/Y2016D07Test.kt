@@ -1,7 +1,7 @@
 package aockt.y2016
 
-import io.github.jadarma.aockt.test.AdventDay
-import io.github.jadarma.aockt.test.AdventSpec
+import io.github.jadarma.aockt.AdventDay
+import io.github.jadarma.aockt.AdventSpec
 
 @AdventDay(2016, 7, "Internet Protocol Version 7")
 class Y2016D07Test : AdventSpec<Y2016D07>({

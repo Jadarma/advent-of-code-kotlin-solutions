@@ -3,7 +3,7 @@ package aockt.y2023
 import aockt.util.math.distinctPairs
 import aockt.util.parse
 import aockt.util.spacial3d.Point3D
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 /**
  * This complicated day was only possible due to amazing insights and other solutions shared by the community:

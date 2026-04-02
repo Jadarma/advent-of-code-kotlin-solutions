@@ -1,7 +1,7 @@
 package aockt.y2025
 
 import aockt.util.parse
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2025D06 : Solution {
 
@@ -49,22 +49,16 @@ object Y2025D06 : Solution {
      * @param cephalopodNotation If enabled, reads inputs as right-to-left columns instead of normal human intuition.
      */
     private fun parseInput(input: String, cephalopodNotation: Boolean): List<Problem> = parse {
-        val lines = input.run {
-            // Account for inputs being given with trimmed ends.
-            val lines = lines()
-            require(lines.size >= 2) { "Invalid problem, not enough input numbers." }
-            val maxLength = lines.maxOf { it.length }
-            lines.map { it.padEnd(maxLength, ' ') }
-        }
+        val lines = input.lines()
 
         // The input indice slices of the problems.
-        val problemSlices = lines.run {
+        val problemSlices = input.lines().run {
             val spaces = first().indices.filter { index -> all { it[index] == ' ' } }
             listOf(-1) + spaces + listOf(first().length)
         }.zipWithNext { start, end -> start.inc()..end.dec() }
 
         buildList {
-            problemSlices.map { slice ->
+            problemSlices.forEach { slice ->
                 val rawData = lines.map { it.slice(slice) }
                 val dataWidth = rawData.first().length
                 val rawInputs = rawData.dropLast(1)

@@ -2,7 +2,7 @@ package aockt.y2024
 
 import aockt.util.parse
 import aockt.y2024.Y2024D07.Operator.*
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2024D07 : Solution {
 

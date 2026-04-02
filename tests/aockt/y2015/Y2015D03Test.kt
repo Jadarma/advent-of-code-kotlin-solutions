@@ -1,7 +1,7 @@
 package aockt.y2015
 
-import io.github.jadarma.aockt.test.AdventDay
-import io.github.jadarma.aockt.test.AdventSpec
+import io.github.jadarma.aockt.AdventDay
+import io.github.jadarma.aockt.AdventSpec
 
 @AdventDay(2015, 3, "Perfectly Spherical Houses in a Vacuum")
 class Y2015D03Test : AdventSpec<Y2015D03>({

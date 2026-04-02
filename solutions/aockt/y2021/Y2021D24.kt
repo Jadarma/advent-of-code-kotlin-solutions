@@ -2,7 +2,7 @@ package aockt.y2021
 
 import aockt.util.parse
 import aockt.util.validation.assume
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 import kotlin.math.abs
 import kotlin.math.pow
 

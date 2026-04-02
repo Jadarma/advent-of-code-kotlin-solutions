@@ -2,7 +2,7 @@ package aockt.y2024
 
 import aockt.util.parse
 import aockt.util.spacial.*
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2024D10 : Solution {
 

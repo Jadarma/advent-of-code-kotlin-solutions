@@ -1,7 +1,7 @@
 package aockt.y2021
 
-import io.github.jadarma.aockt.test.AdventDay
-import io.github.jadarma.aockt.test.AdventSpec
+import io.github.jadarma.aockt.AdventDay
+import io.github.jadarma.aockt.AdventSpec
 
 @AdventDay(2021, 19, "Beacon Scanner")
 class Y2021D19Test : AdventSpec<Y2021D19>({

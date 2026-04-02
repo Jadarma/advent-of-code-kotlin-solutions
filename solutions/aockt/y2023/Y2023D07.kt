@@ -2,7 +2,7 @@ package aockt.y2023
 
 import aockt.util.parse
 import aockt.y2023.Y2023D07.HandType.*
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2023D07 : Solution {
 

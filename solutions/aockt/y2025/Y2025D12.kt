@@ -4,7 +4,7 @@ import aockt.util.parse
 import aockt.util.spacial.Area
 import aockt.util.spacial.Grid
 import aockt.util.validation.assume
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2025D12 : Solution {
 

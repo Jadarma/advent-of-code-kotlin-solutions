@@ -3,7 +3,7 @@ package aockt.y2025
 import aockt.util.Pathfinding.search
 import aockt.util.parse
 import com.microsoft.z3.* // 🔔 Shame!
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2025D10 : Solution {
 

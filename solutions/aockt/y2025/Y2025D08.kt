@@ -3,7 +3,7 @@ package aockt.y2025
 import aockt.util.parse
 import aockt.util.spacial3d.Point3D
 import aockt.util.spacial3d.distanceTo
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2025D08 : Solution {
 

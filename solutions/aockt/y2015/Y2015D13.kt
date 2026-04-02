@@ -1,7 +1,7 @@
 package aockt.y2015
 
 import aockt.util.generatePermutations
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2015D13 : Solution {
 

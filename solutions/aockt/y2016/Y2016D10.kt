@@ -2,7 +2,7 @@ package aockt.y2016
 
 import aockt.y2016.Y2016D10.Target.*
 import aockt.y2016.Y2016D10.TargetType.*
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 object Y2016D10 : Solution {
 

@@ -1,7 +1,7 @@
 package aockt.y2015
 
 import aockt.y2015.Y2015D21.Item.*
-import io.github.jadarma.aockt.core.Solution
+import io.github.jadarma.aockt.Solution
 
 /**
  *  Before you say anything, yes, I know this is way too over-engineered for what it needs to do, but I took at is an
