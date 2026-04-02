@@ -64,18 +64,23 @@ tasks.test {
         showStackTraces = false
 
         // Prints a summary at the end.
-        afterSuite(KotlinClosure2({ desc: TestDescriptor, result: TestResult ->
-            if (desc.parent != null) return@KotlinClosure2
-            with(result) {
-                println(
-                    "\nResults: $resultType (" +
-                            "$testCount tests, " +
-                            "$successfulTestCount passed, " +
-                            "$failedTestCount failed, " +
-                            "$skippedTestCount skipped" +
-                            ")"
-                )
+        addTestListener(object : TestListener {
+            override fun beforeTest(testDescriptor: TestDescriptor) = Unit
+            override fun afterTest(testDescriptor: TestDescriptor, result: TestResult) = Unit
+            override fun beforeSuite(suite: TestDescriptor) = Unit
+            override fun afterSuite(suite: TestDescriptor, result: TestResult) {
+                if (suite.parent != null) return
+                with(result) {
+                    println(
+                        "\nResults: $resultType (" +
+                                "$testCount tests, " +
+                                "$successfulTestCount passed, " +
+                                "$failedTestCount failed, " +
+                                "$skippedTestCount skipped" +
+                                ")"
+                    )
+                }
             }
-        }))
+        })
     }
 }
