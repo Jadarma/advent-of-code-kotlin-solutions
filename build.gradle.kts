@@ -2,12 +2,12 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
 import org.gradle.api.tasks.testing.logging.TestLogEvent.*
 
 plugins {
-    kotlin("jvm") version "2.3.20"
-    kotlin("plugin.serialization") version "2.3.20"
+    kotlin("jvm") version "2.4.21"
+    kotlin("plugin.serialization") version "2.4.21"
 }
 
 kotlin {
-    jvmToolchain(24)
+    jvmToolchain(25)
 }
 
 sourceSets {
@@ -25,9 +25,9 @@ repositories {
 }
 
 dependencies {
-    val aocktVersion = "0.4.0"
-    val kotestVersion = "6.1.10"
-    val kotlinSerializationVersion = "1.10.0"
+    val aocktVersion = "0.4.1"
+    val kotestVersion = "6.2.7"
+    val kotlinSerializationVersion = "1.13.0"
 
     implementation("io.github.jadarma.aockt:aockt-core:$aocktVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinSerializationVersion")
@@ -36,7 +36,7 @@ dependencies {
 
     // For those pesky Linear Algebra days... Am sorry.
     // Current list of shame: Y2025D10
-    implementation("tools.aqua:z3-turnkey:4.14.1")
+    implementation("tools.aqua:z3-turnkey:5.3.3")
 }
 
 tasks.test {
